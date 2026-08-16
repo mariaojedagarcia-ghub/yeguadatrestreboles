@@ -416,10 +416,7 @@ CUBRICIONES = cab('Cubriciones', 'Nuestros sementales, disponibles para tu yegua
     Son los mismos caballos con los que criamos nosotros: lo que ves en nuestros potros es lo que
     puedes esperar.</p>
   <div class="rejilla" id="rejilla"></div>
-  <div class="enlaces-hijos">
-    <a class="ver-arbol" href="hijos-de-provinciano-sm-iii.html">Ver los hijos de Provinciano</a>
-    <a class="ver-arbol" href="hijos-de-tatami-jmg.html">Ver los hijos de Tatami</a>
-  </div>
+  <div class="enlaces-hijos" id="enlaces-hijos"></div>
 </div></section>
 
 <section class="fondo-papel"><div class="wrap">
@@ -446,7 +443,9 @@ CUBRICIONES = cab('Cubriciones', 'Nuestros sementales, disponibles para tu yegua
 
 pagina('cubriciones.html', 'Cubriciones PRE en Córdoba | Yeguada Tres Tréboles',
        'Cubriciones con sementales de Pura Raza Española en Córdoba. Provinciano SM III y Tatami JMG, de Yeguada Tres Tréboles.',
-       CUBRICIONES, scripts="<script>pintarRejilla('rejilla', c => c.cubriciones);</script>")
+       CUBRICIONES,
+       scripts="<script>pintarRejilla('rejilla', c => c.cubriciones);"
+               "pintarEnlacesHijos('enlaces-hijos');</script>")
 
 
 # ============================== RUTAS ==============================

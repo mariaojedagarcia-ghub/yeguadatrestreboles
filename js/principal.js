@@ -181,6 +181,18 @@ function tarjetaCaballo(c){
       (c.capa ? c.capa : 'Capa pendiente') + '</div></div></a>';
 }
 
+/* Los botones de "Ver los hijos de..." se pintan desde los mismos datos y en
+   el mismo orden que las tarjetas de arriba. Escritos a mano se desordenaban
+   en cuanto cambiaba el orden de la rejilla. */
+function pintarEnlacesHijos(id){
+  const caja = document.getElementById(id); if (!caja) return;
+  caja.innerHTML = CABALLOS.filter(c => c.cubriciones)
+    .sort((a,b) => new Date(b.nacimiento) - new Date(a.nacimiento))
+    .map(c => '<a class="ver-arbol" href="' + RUTA + 'hijos-de-' + c.slug + '.html">' +
+      'Ver los hijos de ' + c.nombre.split(' ')[0] + '</a>')
+    .join('');
+}
+
 function pintarRejilla(id, base){
   const caja = document.getElementById(id); if (!caja) return;
   const lista = CABALLOS.filter(c => (!base || base(c)) && pasaFiltro(c))
