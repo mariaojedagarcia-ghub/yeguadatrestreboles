@@ -663,7 +663,10 @@ const CABALLOS = [
     "vendido": false,
     "destacado": false,
     "texto": "",
-    "fotos": [],
+    "fotos": [
+      "portada.jpg",
+      "01.jpg"
+    ],
     "video": null,
     "credito": null,
     "palmares": [],
@@ -693,7 +696,10 @@ const CABALLOS = [
     "vendido": false,
     "destacado": false,
     "texto": "",
-    "fotos": [],
+    "fotos": [
+      "portada.jpg",
+      "01.jpg"
+    ],
     "video": null,
     "credito": null,
     "palmares": [],

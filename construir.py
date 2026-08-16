@@ -208,7 +208,6 @@ YEGUADA = '''
   <div class="prosa centrado" style="margin-top:56px">
     <p class="destacado">"Para cualquier ganadero pequeñito es una manera de mejorar mucho
       la calidad de su yeguada, recortar años."</p>
-    <p style="font-size:16px;color:var(--suave)">Lo peor que tiene, dice Pedro, es lo lento que es.</p>
   </div>
 </div></section>
 
