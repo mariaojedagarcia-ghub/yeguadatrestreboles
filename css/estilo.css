@@ -540,8 +540,21 @@ body.sin-hero{padding-top:96px}
 
 .tabla-hijos.con-titular .fila{grid-template-columns:60px 1.25fr .8fr 1.1fr 1.1fr}
 .tabla-hijos .tit{color:var(--suave)}
-.tabla-hijos .sin-dato{color:var(--linea)}
+.tabla-hijos .es-nuestro{color:var(--verde);font-weight:700}
+.tabla-hijos .es-ajeno{color:var(--suave)}
 @media(max-width:700px){
   .tabla-hijos.con-titular .fila{grid-template-columns:52px 1fr}
   .tabla-hijos .tit{grid-column:2;font-size:14px}
+}
+
+/* ---------- Botones en móvil ----------
+   Uno al lado del otro caben mal, así que se apilan; y si se apilan tienen
+   que medir lo mismo, porque si no se ve descuidado. */
+@media(max-width:620px){
+  .botones{flex-direction:column;align-items:stretch}
+  .botones .btn{width:100%;text-align:center}
+  .vias-contacto{flex-direction:column;align-items:stretch}
+  .vias-contacto .via{width:100%;text-align:center}
+  .enlaces-hijos{flex-direction:column;align-items:stretch}
+  .enlaces-hijos .ver-arbol{width:100%;text-align:center}
 }

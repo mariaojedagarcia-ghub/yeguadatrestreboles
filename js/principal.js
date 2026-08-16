@@ -244,14 +244,14 @@ function pintarFicha(slug){
   const reg = c.hijosReg || [];
   const otroTitulo = c.sexo === 'H' ? 'Padre' : 'Madre';
 
-  /* De quién es hoy cada cría. Si no consta, no se inventa: se deja en blanco.
-     Solo se dice "Tres Tréboles" cuando el ejemplar está en la yeguada y no
-     se ha vendido; así no parece nuestro lo que no lo es. */
+  /* De quién es hoy cada cría. No hace falta saber el nombre del titular para
+     dejar claro lo importante: si no está en la yeguada, no es nuestro. */
   function titularDe(h){
-    if (h.titular) return h.titular;
     const nuestro = h.slug ? porSlug(h.slug) : null;
-    if (nuestro && !nuestro.vendido) return 'Tres Tréboles';
-    return '<span class="sin-dato">—</span>';
+    if (nuestro && !nuestro.vendido)
+      return '<span class="es-nuestro">Tres Tréboles</span>';
+    if (h.titular) return h.titular;
+    return '<span class="es-ajeno">Otra ganadería</span>';
   }
 
   const enCasa = reg.filter(h => { const n = h.slug ? porSlug(h.slug) : null;
