@@ -77,10 +77,20 @@ function marcador(nombre){
 
 /* La foto del caballo. Si tiene carta genealógica, la foto se voltea al pasar
    por encima (o al tocarla en móvil) y enseña el documento por detrás. */
+/* El marco de la foto principal es apaisado. Si la foto es vertical, recortarla
+   deja al caballo sin cabeza: en ese caso se enseña entera y se rellenan los
+   lados con la misma foto desenfocada. */
+function ajustarVertical(img){
+  const caja = img.closest('.foto');
+  if (caja && img.naturalHeight > img.naturalWidth * 1.05) caja.classList.add('vertical');
+}
+
 function fotoCaballo(c, clase){
   const ruta = RUTA + 'img/caballos/' + c.slug + '/';
   const cara = (c.fotos && c.fotos.length)
-    ? '<img src="' + ruta + c.fotos[0] + '" alt="' + c.nombre + ', caballo PRE de Yeguada Tres Tréboles">'
+    ? '<img class="fondo" src="' + ruta + c.fotos[0] + '" alt="" aria-hidden="true">' +
+      '<img class="principal" src="' + ruta + c.fotos[0] + '" onload="ajustarVertical(this)"' +
+      ' alt="' + c.nombre + ', caballo PRE de Yeguada Tres Tréboles">'
     : marcador(c.nombre);
 
   if (!c.genealogia) return '<div class="foto ' + (clase||'') + '">' + cara + '</div>';

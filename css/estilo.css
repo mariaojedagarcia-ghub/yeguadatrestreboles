@@ -278,8 +278,13 @@ footer.pie{background:var(--verde-osc);color:#9AA79A;padding:52px 0;font-size:13
 .premio-linea span{font-size:14px;color:var(--suave);text-align:right}
 .galeria{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
 .galeria img{width:100%;border-radius:3px;display:block}
-.ficha-hero .foto{aspect-ratio:16/8;min-height:240px;border-radius:3px;overflow:hidden;border:1px solid var(--linea)}
+.ficha-hero .foto{position:relative;aspect-ratio:16/8;min-height:240px;border-radius:3px;
+  overflow:hidden;border:1px solid var(--linea);background:var(--verde-osc)}
 .ficha-hero .foto img{width:100%;height:100%;object-fit:cover;display:block}
+/* Foto vertical: se ve entera y el hueco se rellena con ella misma desenfocada */
+.ficha-hero .foto img.fondo{position:absolute;inset:0;display:none}
+.ficha-hero .foto.vertical img.fondo{display:block;filter:blur(30px) brightness(.62);transform:scale(1.2)}
+.ficha-hero .foto.vertical img.principal{position:relative;object-fit:contain}
 .ficha-hero .marcador span{font-size:34px}
 .filtros{padding:30px 0 4px;display:flex;flex-direction:column;gap:14px}
 .fila-filtro{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
