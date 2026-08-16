@@ -239,17 +239,13 @@ function pintarFicha(slug){
   const hijos = (c.descendencia || []).map(porSlug).filter(Boolean)
     .sort((a,b) => new Date(a.nacimiento) - new Date(b.nacimiento));
 
-  const enlaceHijos = c.cubriciones
-    ? '<a class="ver-arbol" href="' + RUTA + 'hijos-de-' + c.slug + '.html">' +
-      'Ver todos los hijos de ' + nombreCorto + '</a>' : '';
-
-  const bloqueHijos = (hijos.length || enlaceHijos) ? (
+  const bloqueHijos = hijos.length ? (
     '<section class="seccion-ficha"><div class="bloque"><h2>Descendencia en la yeguada</h2>' +
     '<div class="hijos">' + hijos.map(h =>
       '<a class="rama" href="' + RUTA + 'caballos/' + h.slug + '.html">' +
       '<div class="r">' + fechaLarga(h.nacimiento) + '</div>' +
       '<div class="v">' + h.nombre + '</div><div class="link">Ver su ficha →</div></a>').join('') +
-    '</div>' + enlaceHijos + '</div></section>') : '';
+    '</div></div></section>') : '';
 
   /* Todos los hijos inscritos en el Libro Genealógico, sean nuestros o no.
      Solo nombre, año, capa y el otro progenitor: ni microchip ni carta. */
