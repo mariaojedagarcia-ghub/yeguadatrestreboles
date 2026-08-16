@@ -1004,7 +1004,12 @@ const CABALLOS = [
     "palmares": [],
     "arbol": "arbol.jpg",
     "hijosLG": 0,
-    "videos": [],
+    "videos": [
+      {
+        "archivo": "video-soberano.mp4",
+        "poster": "video-soberano-poster.jpg"
+      }
+    ],
     "igg": null,
     "iggFiab": null,
     "creditoPortada": null,
