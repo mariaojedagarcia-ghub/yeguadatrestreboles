@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Contenido de cada página. Ejecutar:  python3 construir.py"""
-from generar import pagina
+from generar import pagina, REDES
 
 # ============================== PORTADA ==============================
 PORTADA = '''
@@ -626,6 +626,9 @@ CONTACTO = cab('Contacto', 'Estaremos encantados de enseñarte la yeguada.', 'Ye
       <li><span>Teléfono</span><span><a href="tel:+34666438378">666 43 83 78</a></span></li>
       <li><span>WhatsApp</span><span><a href="https://wa.me/34666438378" target="_blank" rel="noopener">666 43 83 78</a></span></li>
       <li><span>Dirección</span><span>Urbanización 7 Fincas<br>W4PM+P7, 14192<br>Santa María de Trassierra, Córdoba</span></li>
+''' + ''.join(
+      f'<li><span>{n}</span><span><a href="{u}" target="_blank" rel="noopener">'
+      f'{q}</a></span></li>' for n, u, _, q in REDES) + '''
     </ul>
   </div>
   <div>

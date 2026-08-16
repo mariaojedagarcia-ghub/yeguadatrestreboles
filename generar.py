@@ -42,6 +42,40 @@ SUB = SUB_CABALLOS
 TREBOL_SVG = ('<svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.6">'
               '<path d="M1 1.5 6 6.5 11 1.5"/></svg>')
 
+# ---------------------------------------------------------------- redes
+# Para añadir otra red: su icono en ICONO y su línea en REDES.
+ICONO = {
+    'instagram': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">'
+                 '<rect x="2.5" y="2.5" width="19" height="19" rx="5.4"/>'
+                 '<circle cx="12" cy="12" r="4.2"/>'
+                 '<circle cx="17.6" cy="6.4" r="1.15" fill="currentColor" stroke="none"/></svg>',
+    'tiktok':    '<svg viewBox="0 0 24 24" fill="currentColor">'
+                 '<path d="M16.6 2h-2.9v13.3a2.6 2.6 0 1 1-2.1-2.55V9.8a5.7 5.7 0 1 0 5.2 5.68V9.1a6.7 6.7 0'
+                 ' 0 0 4.05 1.36V7.55A3.9 3.9 0 0 1 16.6 3.9V2Z"/></svg>',
+    'facebook':  '<svg viewBox="0 0 24 24" fill="currentColor">'
+                 '<path d="M14.2 22v-8.2h2.8l.42-3.23H14.2V8.5c0-.94.26-1.57 1.6-1.57h1.72V4.04A23 23 0 0 0'
+                 ' 15 3.9c-2.48 0-4.18 1.51-4.18 4.3v2.37H8v3.23h2.82V22h3.38Z"/></svg>',
+}
+
+# (nombre de la red, dirección, icono, cómo se nos llama allí)
+REDES = [
+    ('Instagram', 'https://www.instagram.com/tres_treboles_pre/', 'instagram',
+     '@tres_treboles_pre'),
+    ('TikTok',    'https://www.tiktok.com/@tres_treboles_pre',    'tiktok',
+     '@tres_treboles_pre'),
+    ('Facebook',  'https://www.facebook.com/p/Yeguada-Tres-Tr%C3%A9boles-61558266903852/',
+     'facebook',  'Yeguada Tres Tréboles'),
+]
+
+
+def redes_html(clase='redes'):
+    if not REDES:
+        return ''
+    enlaces = ''.join(
+        f'<a href="{url}" target="_blank" rel="noopener" aria-label="{nombre}" title="{nombre}">'
+        f'{ICONO[icono]}</a>' for nombre, url, icono, _ in REDES)
+    return f'<div class="{clase}">{enlaces}</div>'
+
 
 def cuentas():
     """Lee los caballos de datos/caballos.js (quitándole la envoltura de JavaScript)."""
@@ -99,7 +133,8 @@ def pie(ruta):
     return f'''<footer class="pie"><div class="wrap pie-cols">
   <div class="pie-logo"><img src="{ruta}img/marca/logo-completo-blanco.png" alt="Yeguada Tres Tréboles">
     <div>Urbanización 7 Fincas · Córdoba<br><a href="tel:+34666438378">666 43 83 78</a></div></div>
-  <div><strong>Pura Raza Española</strong><br>Inscritos en el Libro Genealógico del PRE</div>
+  <div><strong>Pura Raza Española</strong><br>Inscritos en el Libro Genealógico del PRE
+    {redes_html()}</div>
   <div><a href="{ruta}aviso-legal.html">Aviso legal</a> · <a href="{ruta}privacidad.html">Privacidad</a>
     · <a href="{ruta}cookies.html">Cookies</a></div>
 </div></footer>'''
