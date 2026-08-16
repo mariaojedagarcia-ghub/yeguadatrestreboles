@@ -173,9 +173,8 @@ YEGUADA = '''
       por eso la ganadería se llama Tres Tréboles."</p>
     <p>El sueño era de Pedro, pero el nombre es de ellos. Y a estas alturas los caballos ya son
       de todos. Por eso esto no es un negocio de paso, sino algo que queremos que dure.</p>
-    <p>De ahí sale el hierro: tres hojas de trébol dibujadas como corazones y el tres en el
-      centro. Es la marca con la que la yeguada figura en el Libro Genealógico y la que aparece
-      junto a nuestro nombre en la carta de cada ejemplar.</p>
+    <p>De ahí sale el hierro: una hoja por cada hijo, en forma de corazón, y el tres en el
+      centro. Es el hierro con el que la yeguada figura en el Libro Genealógico.</p>
   </div>
 </div></section>
 
