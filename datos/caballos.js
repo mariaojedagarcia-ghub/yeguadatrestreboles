@@ -469,7 +469,12 @@ const CABALLOS = [
     "palmares": [],
     "arbol": "arbol.jpg",
     "hijosLG": 0,
-    "videos": [],
+    "videos": [
+      {
+        "archivo": "video-pompita.mp4",
+        "poster": "video-pompita-poster.jpg"
+      }
+    ],
     "igg": null,
     "iggFiab": null,
     "creditoPortada": null
@@ -651,7 +656,12 @@ const CABALLOS = [
     "palmares": [],
     "arbol": "arbol.jpg",
     "hijosLG": 3,
-    "videos": [],
+    "videos": [
+      {
+        "archivo": "video-nerva.mp4",
+        "poster": "video-nerva-poster.jpg"
+      }
+    ],
     "igg": "105,37",
     "iggFiab": "baja",
     "creditoPortada": null,
