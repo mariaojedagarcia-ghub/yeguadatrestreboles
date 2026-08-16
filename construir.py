@@ -513,8 +513,8 @@ CLASES = cab('Clases de iniciación', 'Aprender a montar desde cero, en la sierr
     <p class="pendiente">Pendiente de indicar: duración y frecuencia de las clases, edad mínima,
       si son individuales o en grupo, qué hay que traer y precios.</p>
   </div>
-  <div class="foto-marco"><img src="img/servicios/picadero-01.jpg"
-    alt="Picadero de Yeguada Tres Tréboles, donde se dan las clases de iniciación"></div>
+  <div class="foto-marco"><img src="img/servicios/clases-01.jpg"
+    alt="Clase de iniciación a caballo en el picadero de Yeguada Tres Tréboles"></div>
 </div></section>
 
 <section class="fondo-papel"><div class="wrap">
@@ -530,6 +530,7 @@ CLASES = cab('Clases de iniciación', 'Aprender a montar desde cero, en la sierr
 """ + CONTACTO_FRANJA
 
 MEDIA_CLASES = """<script>pintarCarrusel('galeria-clases', [
+  {tipo:'foto', archivo:'img/servicios/clases-01.jpg',   pie:'Primeros pasos, con casco'},
   {tipo:'foto', archivo:'img/servicios/picadero-02.jpg', pie:'La pista'},
   {tipo:'foto', archivo:'img/servicios/picadero-01.jpg', pie:'Las instalaciones'},
   {tipo:'foto', archivo:'img/servicios/picadero-03.jpg', pie:'La finca'}
