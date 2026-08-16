@@ -501,7 +501,7 @@ pagina('rutas.html', 'Rutas a caballo por la sierra de Córdoba | Tres Tréboles
 
 # ============================== CLASES DE INICIACIÓN ==============================
 CLASES = cab('Clases de iniciación', 'Aprender a montar desde cero, en la sierra de Córdoba.',
-             'Servicios', 'img/servicios/picadero-02.jpg') + """
+             'Servicios', 'img/servicios/clases-03.jpg') + """
 <section><div class="wrap dos">
   <div class="prosa">
     <div class="et">Las clases</div>
@@ -514,8 +514,8 @@ CLASES = cab('Clases de iniciación', 'Aprender a montar desde cero, en la sierr
     <p class="pendiente">Pendiente de indicar: duración y frecuencia de las clases, edad mínima,
       si son individuales o en grupo, qué hay que traer y precios.</p>
   </div>
-  <div class="foto-marco"><img src="img/servicios/clases-03.jpg"
-    alt="Clase de iniciación a caballo en el picadero de Yeguada Tres Tréboles"></div>
+  <div class="foto-marco"><img src="img/servicios/clases-01.jpg"
+    alt="Niña montando con casco en una clase de iniciación de Yeguada Tres Tréboles"></div>
 </div></section>
 
 <section class="fondo-papel"><div class="wrap">
@@ -524,18 +524,13 @@ CLASES = cab('Clases de iniciación', 'Aprender a montar desde cero, en la sierr
   <div id="galeria-clases"></div>
 </div></section>
 
-<section><div class="wrap centrado prosa">
-  <p><em>Antes de publicar esta página hay que confirmar la parte legal: seguro de
-    responsabilidad civil y titulación necesaria para impartir clases.</em></p>
-</div></section>
 """ + CONTACTO_FRANJA
 
 MEDIA_CLASES = """<script>pintarCarrusel('galeria-clases', [
   {tipo:'foto', archivo:'img/servicios/clases-03.jpg',   pie:'Siempre acompañados'},
   {tipo:'foto', archivo:'img/servicios/clases-01.jpg',   pie:'Primeros pasos, con casco'},
   {tipo:'foto', archivo:'img/servicios/clases-02.jpg',   pie:'En la pista'},
-  {tipo:'foto', archivo:'img/servicios/clases-04.jpg',   pie:'Clase al atardecer'},
-  {tipo:'foto', archivo:'img/servicios/picadero-02.jpg', pie:'El picadero'}
+  {tipo:'foto', archivo:'img/servicios/clases-04.jpg',   pie:'Clase al atardecer'}
 ]);</script>"""
 
 pagina('clases.html', 'Clases de iniciación a caballo en Córdoba | Tres Tréboles',
