@@ -159,7 +159,8 @@ function pasaFiltro(c){
   return true;
 }
 
-const CLASE_CAPA = {'Castaña':'c-castana','Negra':'c-negra','Torda':'c-torda','Bayo':'c-bayo'};
+const CLASE_CAPA = {'Castaña':'c-castana','Negra':'c-negra','Torda':'c-torda','Bayo':'c-bayo',
+  'Baya':'c-bayo','Alazana':'c-alazana','Palomina':'c-palomina','Perlina':'c-perlina'};
 
 function tarjetaCaballo(c){
   const cl = CLASE_CAPA[c.capa] || 'c-none';
@@ -231,12 +232,33 @@ function pintarFicha(slug){
       'Ver todos los hijos de ' + nombreCorto + '</a>' : '';
 
   const bloqueHijos = (hijos.length || enlaceHijos) ? (
-    '<section class="seccion-ficha"><div class="bloque"><h2>Descendencia</h2>' +
+    '<section class="seccion-ficha"><div class="bloque"><h2>Descendencia en la yeguada</h2>' +
     '<div class="hijos">' + hijos.map(h =>
       '<a class="rama" href="' + RUTA + 'caballos/' + h.slug + '.html">' +
       '<div class="r">' + fechaLarga(h.nacimiento) + '</div>' +
       '<div class="v">' + h.nombre + '</div><div class="link">Ver su ficha →</div></a>').join('') +
     '</div>' + enlaceHijos + '</div></section>') : '';
+
+  /* Todos los hijos inscritos en el Libro Genealógico, sean nuestros o no.
+     Solo nombre, año, capa y el otro progenitor: ni microchip ni carta. */
+  const reg = c.hijosReg || [];
+  const otroTitulo = c.sexo === 'H' ? 'Padre' : 'Madre';
+  const bloqueReg = reg.length ? (
+    '<section class="seccion-ficha"><div class="bloque">' +
+    '<h2>Descendencia inscrita</h2>' +
+    '<p class="pie-lg">' + reg.length + ' hijos inscritos en el Libro Genealógico del PRE.</p>' +
+    '<div class="tabla-hijos">' +
+      '<div class="fila cab"><span>Año</span><span>Nombre</span><span>Capa</span><span>' +
+        otroTitulo + '</span></div>' +
+      reg.map(h => '<div class="fila">' +
+        '<span class="anio">' + h.anio + '</span>' +
+        '<span class="nom">' + (h.slug
+          ? '<a href="' + RUTA + 'caballos/' + h.slug + '.html">' + h.nombre + '</a>'
+          : h.nombre) + '</span>' +
+        '<span class="cap"><span class="punto ' + (CLASE_CAPA[h.capa] || 'c-none') + '"></span>' +
+          h.capa + '</span>' +
+        '<span class="otro">' + h.otro + '</span></div>').join('') +
+    '</div></div></section>') : '';
 
   let palmares = '';
   if (c.palmares && c.palmares.length){
@@ -300,6 +322,7 @@ function pintarFicha(slug){
     '</div></section>' +
 
     bloqueHijos +
+    bloqueReg +
 
     '<section class="seccion-ficha"><div class="bloque"><h2>Galería</h2>' + galeria +
       (c.credito ? '<div class="credito-pie" style="text-align:left;margin-top:14px">' +

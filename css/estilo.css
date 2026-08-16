@@ -515,3 +515,23 @@ body.sin-hero{padding-top:96px}
 .hierro .dos{grid-template-columns:.8fr 1.2fr;gap:60px}
 .hierro .foto-marco{max-width:400px;margin:0 auto}
 @media(max-width:880px){.hierro .dos{grid-template-columns:1fr}}
+
+/* ---------- Tabla de descendencia inscrita en el Libro Genealógico ---------- */
+.pie-lg{font-size:15px;color:var(--suave);margin:0 0 22px}
+.tabla-hijos{border-top:1px solid var(--linea)}
+.tabla-hijos .fila{display:grid;grid-template-columns:64px 1.4fr .9fr 1.3fr;gap:14px;
+  align-items:center;padding:13px 2px;border-bottom:1px solid var(--linea);font-size:15.5px}
+.tabla-hijos .fila.cab{font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--suave);padding:10px 2px;border-bottom:1px solid var(--linea)}
+.tabla-hijos .anio{color:var(--suave);font-variant-numeric:tabular-nums}
+.tabla-hijos .nom{font-family:'Cormorant Garamond',Georgia,serif;font-size:20px}
+.tabla-hijos .nom a{color:var(--verde);text-decoration:none;border-bottom:1px solid var(--linea)}
+.tabla-hijos .nom a:hover{border-color:var(--verde)}
+.tabla-hijos .cap{display:flex;align-items:center;gap:8px;color:#4A463E}
+.tabla-hijos .otro{color:var(--suave)}
+@media(max-width:700px){
+  .tabla-hijos .fila{grid-template-columns:52px 1fr;row-gap:4px}
+  .tabla-hijos .fila.cab{display:none}
+  .tabla-hijos .cap,.tabla-hijos .otro{grid-column:2;font-size:14px}
+}
+.c-alazana{background:#A85B2C}.c-palomina{background:#E0C27A}.c-perlina{background:#EADDC4}

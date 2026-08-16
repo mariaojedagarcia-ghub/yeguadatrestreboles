@@ -20,7 +20,7 @@ const CABALLOS = [
     "padreSlug": null,
     "madre": "Provinciana II",
     "madreSlug": null,
-    "criador": null,
+    "criador": "Salvador Miras Gómez",
     "lugarNacimiento": null,
     "descendencia": [
       "soberano-tres-treboles",
@@ -48,7 +48,93 @@ const CABALLOS = [
     "videos": [],
     "igg": "108,05",
     "iggFiab": "alta",
-    "creditoPortada": "Salvador Giménez Fotografía"
+    "creditoPortada": "Salvador Giménez Fotografía",
+    "hijosReg": [
+      {
+        "nombre": "Lesa Navero",
+        "anio": 2017,
+        "capa": "Baya",
+        "otro": "Cantiña SM",
+        "slug": null
+      },
+      {
+        "nombre": "Califa CLX",
+        "anio": 2018,
+        "capa": "Negra",
+        "otro": "Famosa SM",
+        "slug": null
+      },
+      {
+        "nombre": "Eclipse Navero",
+        "anio": 2020,
+        "capa": "Castaña",
+        "otro": "Triana LXII",
+        "slug": null
+      },
+      {
+        "nombre": "Farrukito IV",
+        "anio": 2022,
+        "capa": "Negra",
+        "otro": "Malaguita III",
+        "slug": null
+      },
+      {
+        "nombre": "Idílico LC",
+        "anio": 2023,
+        "capa": "Negra",
+        "otro": "Alba Madroñal",
+        "slug": null
+      },
+      {
+        "nombre": "Provinciana VI",
+        "anio": 2023,
+        "capa": "Negra",
+        "otro": "Valvuena",
+        "slug": null
+      },
+      {
+        "nombre": "Nervión Tres Tréboles",
+        "anio": 2024,
+        "capa": "Negra",
+        "otro": "Nerva Navero",
+        "slug": "nervion-tres-treboles"
+      },
+      {
+        "nombre": "Soberano Tres Tréboles",
+        "anio": 2024,
+        "capa": "Castaña",
+        "otro": "NR Malusa",
+        "slug": "soberano-tres-treboles"
+      },
+      {
+        "nombre": "Bejarano Font",
+        "anio": 2025,
+        "capa": "Alazana",
+        "otro": "Rifirrafe Frague",
+        "slug": null
+      },
+      {
+        "nombre": "Jammer LC",
+        "anio": 2025,
+        "capa": "Negra",
+        "otro": "Belia CE",
+        "slug": null
+      },
+      {
+        "nombre": "Nervión II Tres T",
+        "anio": 2025,
+        "capa": "Negra",
+        "otro": "Nerva Navero",
+        "slug": "nervion-ii-tres-t"
+      },
+      {
+        "nombre": "Soberano II Tres T",
+        "anio": 2026,
+        "capa": "Negra",
+        "otro": "NR Malusa",
+        "slug": "soberano-ii-tres-t"
+      }
+    ]
   },
   {
     "slug": "tatami-jmg",
@@ -118,7 +204,72 @@ const CABALLOS = [
     "videos": [],
     "igg": "104,22",
     "iggFiab": null,
-    "creditoPortada": null
+    "creditoPortada": null,
+    "hijosReg": [
+      {
+        "nombre": "Japonés III",
+        "anio": 2009,
+        "capa": "Castaña",
+        "otro": "Zoilo IX",
+        "slug": null
+      },
+      {
+        "nombre": "Japonés MFE",
+        "anio": 2012,
+        "capa": "Castaña",
+        "otro": "Discreto XIII",
+        "slug": null
+      },
+      {
+        "nombre": "Japonés MFE II",
+        "anio": 2015,
+        "capa": "Castaña",
+        "otro": "Hebreo XIX",
+        "slug": null
+      },
+      {
+        "nombre": "Japonés MFE III",
+        "anio": 2017,
+        "capa": "Castaña",
+        "otro": "Hebreo Al Andalus",
+        "slug": null
+      },
+      {
+        "nombre": "Japonés MFE IV",
+        "anio": 2019,
+        "capa": "Castaña",
+        "otro": "Talismán MFE",
+        "slug": null
+      },
+      {
+        "nombre": "Japonés MFE V",
+        "anio": 2020,
+        "capa": "Castaña",
+        "otro": "Hebreo Al Andalus",
+        "slug": null
+      },
+      {
+        "nombre": "Japonés MFE VI",
+        "anio": 2021,
+        "capa": "Castaña",
+        "otro": "Hebreo Al Andalus",
+        "slug": null
+      },
+      {
+        "nombre": "Japonés MFE VII",
+        "anio": 2023,
+        "capa": "Castaña",
+        "otro": "Jaquetón MFE III",
+        "slug": null
+      },
+      {
+        "nombre": "Japonés MFE VIII",
+        "anio": 2025,
+        "capa": "Castaña",
+        "otro": "Jaquetón MFE III",
+        "slug": null
+      }
+    ]
   },
   {
     "slug": "faraona-mfe",
@@ -147,7 +298,6 @@ const CABALLOS = [
       "02.jpg",
       "03.jpg",
       "04.jpg",
-      "05.jpg",
       "06.jpg"
     ],
     "video": null,
@@ -343,7 +493,44 @@ const CABALLOS = [
     "videos": [],
     "igg": "99,71",
     "iggFiab": "baja",
-    "creditoPortada": null
+    "creditoPortada": null,
+    "hijosReg": [
+      {
+        "nombre": "Alaska XXII",
+        "anio": 2019,
+        "capa": "Castaña",
+        "otro": "Boletus SB",
+        "slug": null
+      },
+      {
+        "nombre": "Cigarrera K",
+        "anio": 2021,
+        "capa": "Castaña",
+        "otro": "Sandocán AC",
+        "slug": null
+      },
+      {
+        "nombre": "Utrera K",
+        "anio": 2022,
+        "capa": "Alazana",
+        "otro": "Epon de Vale",
+        "slug": null
+      },
+      {
+        "nombre": "Morisco Andalusí",
+        "anio": 2025,
+        "capa": "Castaña",
+        "otro": "Príncipe Lorenzana",
+        "slug": null
+      },
+      {
+        "nombre": "Canastera Tres T",
+        "anio": 2026,
+        "capa": "Torda",
+        "otro": "Pericón de Torres",
+        "slug": "canastera-tres-t"
+      }
+    ]
   },
   {
     "slug": "nr-malusa",
@@ -356,7 +543,7 @@ const CABALLOS = [
     "padreSlug": null,
     "madre": "Farruca CXXXVIII",
     "madreSlug": null,
-    "criador": null,
+    "criador": "Yeguada El Romerito",
     "lugarNacimiento": null,
     "descendencia": [
       "soberano-tres-treboles",
@@ -390,7 +577,37 @@ const CABALLOS = [
     ],
     "igg": "106,86",
     "iggFiab": "alta",
-    "creditoPortada": "Salvador Giménez Fotografía"
+    "creditoPortada": "Salvador Giménez Fotografía",
+    "hijosReg": [
+      {
+        "nombre": "Umbrete de Cuenca",
+        "anio": 2019,
+        "capa": "Castaña",
+        "otro": "Amazonas AR",
+        "slug": null
+      },
+      {
+        "nombre": "Crimea Navero",
+        "anio": 2023,
+        "capa": "Castaña",
+        "otro": "Faneguero La Bellota",
+        "slug": null
+      },
+      {
+        "nombre": "Soberano Tres Tréboles",
+        "anio": 2024,
+        "capa": "Castaña",
+        "otro": "Provinciano SM III",
+        "slug": "soberano-tres-treboles"
+      },
+      {
+        "nombre": "Soberano II Tres T",
+        "anio": 2026,
+        "capa": "Negra",
+        "otro": "Provinciano SM III",
+        "slug": "soberano-ii-tres-t"
+      }
+    ]
   },
   {
     "slug": "nerva-navero",
@@ -403,7 +620,7 @@ const CABALLOS = [
     "padreSlug": null,
     "madre": "Gamarra III",
     "madreSlug": null,
-    "criador": null,
+    "criador": "Francisco José Guerrero López",
     "lugarNacimiento": null,
     "descendencia": [
       "nervion-tres-treboles",
@@ -426,7 +643,30 @@ const CABALLOS = [
     "videos": [],
     "igg": "105,37",
     "iggFiab": "baja",
-    "creditoPortada": null
+    "creditoPortada": null,
+    "hijosReg": [
+      {
+        "nombre": "Cautiva Navero",
+        "anio": 2023,
+        "capa": "Castaña",
+        "otro": "Norte A",
+        "slug": null
+      },
+      {
+        "nombre": "Nervión Tres Tréboles",
+        "anio": 2024,
+        "capa": "Negra",
+        "otro": "Provinciano SM III",
+        "slug": "nervion-tres-treboles"
+      },
+      {
+        "nombre": "Nervión II Tres T",
+        "anio": 2025,
+        "capa": "Negra",
+        "otro": "Provinciano SM III",
+        "slug": "nervion-ii-tres-t"
+      }
+    ]
   },
   {
     "slug": "betica-vr",
@@ -447,9 +687,7 @@ const CABALLOS = [
     "vendido": false,
     "destacado": false,
     "texto": "",
-    "fotos": [
-      "portada.jpg"
-    ],
+    "fotos": [],
     "video": null,
     "credito": null,
     "palmares": [],
@@ -775,6 +1013,43 @@ const CABALLOS = [
     "iggFiab": "alta",
     "creditoPortada": null,
     "hito": null,
-    "nota": null
+    "nota": null,
+    "hijosReg": [
+      {
+        "nombre": "Tormenta YT",
+        "anio": 2017,
+        "capa": "Torda",
+        "otro": "Salomón SM III",
+        "slug": null
+      },
+      {
+        "nombre": "Distinguido YT",
+        "anio": 2019,
+        "capa": "Castaña",
+        "otro": "Espléndido RAM",
+        "slug": null
+      },
+      {
+        "nombre": "Distinguido K",
+        "anio": 2022,
+        "capa": "Alazana",
+        "otro": "Epon de Vale",
+        "slug": null
+      },
+      {
+        "nombre": "Olimpo K",
+        "anio": 2023,
+        "capa": "Castaña",
+        "otro": "Príncipe Lorenzana",
+        "slug": null
+      },
+      {
+        "nombre": "Nobiliaria K",
+        "anio": 2024,
+        "capa": "Castaña",
+        "otro": "Príncipe Lorenzana",
+        "slug": null
+      }
+    ]
   }
 ];
