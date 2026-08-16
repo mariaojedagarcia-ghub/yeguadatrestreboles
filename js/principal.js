@@ -243,13 +243,30 @@ function pintarFicha(slug){
      Solo nombre, año, capa y el otro progenitor: ni microchip ni carta. */
   const reg = c.hijosReg || [];
   const otroTitulo = c.sexo === 'H' ? 'Padre' : 'Madre';
+
+  /* De quién es hoy cada cría. Si no consta, no se inventa: se deja en blanco.
+     Solo se dice "Tres Tréboles" cuando el ejemplar está en la yeguada y no
+     se ha vendido; así no parece nuestro lo que no lo es. */
+  function titularDe(h){
+    if (h.titular) return h.titular;
+    const nuestro = h.slug ? porSlug(h.slug) : null;
+    if (nuestro && !nuestro.vendido) return 'Tres Tréboles';
+    return '<span class="sin-dato">—</span>';
+  }
+
+  const enCasa = reg.filter(h => { const n = h.slug ? porSlug(h.slug) : null;
+                                   return n && !n.vendido; }).length;
   const bloqueReg = reg.length ? (
     '<section class="seccion-ficha"><div class="bloque">' +
     '<h2>Descendencia inscrita</h2>' +
-    '<p class="pie-lg">' + reg.length + ' hijos inscritos en el Libro Genealógico del PRE.</p>' +
-    '<div class="tabla-hijos">' +
+    '<p class="pie-lg">' + reg.length + ' hijos inscritos en el Libro Genealógico del PRE. ' +
+      (enCasa ? 'Solo ' + (enCasa === 1 ? 'uno sigue' : enCasa + ' siguen') +
+                ' en la yeguada; el resto pertenece a otras ganaderías.'
+              : 'Ninguno está hoy en la yeguada: todos pertenecen a otras ganaderías.') +
+      '</p>' +
+    '<div class="tabla-hijos con-titular">' +
       '<div class="fila cab"><span>Año</span><span>Nombre</span><span>Capa</span><span>' +
-        otroTitulo + '</span></div>' +
+        otroTitulo + '</span><span>Titular</span></div>' +
       reg.map(h => '<div class="fila">' +
         '<span class="anio">' + h.anio + '</span>' +
         '<span class="nom">' + (h.slug
@@ -257,7 +274,8 @@ function pintarFicha(slug){
           : h.nombre) + '</span>' +
         '<span class="cap"><span class="punto ' + (CLASE_CAPA[h.capa] || 'c-none') + '"></span>' +
           h.capa + '</span>' +
-        '<span class="otro">' + h.otro + '</span></div>').join('') +
+        '<span class="otro">' + h.otro + '</span>' +
+        '<span class="tit">' + titularDe(h) + '</span></div>').join('') +
     '</div></div></section>') : '';
 
   let palmares = '';
@@ -291,11 +309,15 @@ function pintarFicha(slug){
        anio(c.nacimiento) + ' · ' + edad(c.nacimiento)].join(' · ') + '</div>' +
       (c.nota ? '<p class="nota-ficha">' + c.nota + '</p>' : '') + '</div>' +
 
-    '<div class="ficha-cols">' +
-      '<div class="bloque"><h2>Sobre ' + nombreCorto + '</h2>' +
-        (c.texto ? '<div class="texto-ficha">' + c.texto + '</div>'
-                 : '<div class="vacio">El texto de presentación está pendiente de escribir.</div>') +
-        '<a class="cta" href="' + RUTA + 'contacto.html">Consultar sobre ' + nombreCorto + '</a></div>' +
+    /* El bloque "Sobre X" solo aparece si hay algo que contar de ese caballo.
+       Si no, los datos ocupan todo el ancho y no queda un hueco vacío. */
+    '<div class="ficha-cols' + (c.texto ? '' : ' sola') + '">' +
+      (c.texto
+        ? '<div class="bloque"><h2>Sobre ' + nombreCorto + '</h2>' +
+          '<div class="texto-ficha">' + c.texto + '</div>' +
+          '<a class="cta" href="' + RUTA + 'contacto.html">Consultar sobre ' +
+            nombreCorto + '</a></div>'
+        : '') +
       '<div class="bloque"><h2>Datos</h2><ul class="datos">' +
         '<li><span>Nacimiento</span><span>' + fechaLarga(c.nacimiento) + '</span></li>' +
         '<li><span>Edad</span><span>' + edad(c.nacimiento) + '</span></li>' +
@@ -308,7 +330,9 @@ function pintarFicha(slug){
         (c.cubriciones ? '<li><span>Cubriciones</span><span>Disponible</span></li>' : '') +
         (c.enVenta && !c.vendido ? '<li><span>Disponibilidad</span><span>En venta</span></li>' : '') +
         (c.vendido ? '<li><span>Situación</span><span>Ya no está en la yeguada</span></li>' : '') +
-      '</ul></div>' +
+      '</ul>' +
+      (c.texto ? '' : '<a class="cta" href="' + RUTA + 'contacto.html">Consultar sobre ' +
+        nombreCorto + '</a>') + '</div>' +
     '</div>' +
 
     palmares +

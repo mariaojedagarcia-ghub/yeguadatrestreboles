@@ -87,7 +87,7 @@ def main():
             print('  ' + r)
         print()
 
-    cambios = []
+    cambios, sueltos = [], []
     for c in caballos:
         carpeta = os.path.join(RAIZ, 'img', 'caballos', c['slug'])
         if not os.path.isdir(carpeta):
@@ -119,6 +119,17 @@ def main():
 
         arbol = 'arbol.jpg' if 'arbol.jpg' in archivos else None
 
+        # Archivos que la web no puede usar y que si no se avisa pasan
+        # desapercibidos: el navegador no reproduce .mov ni enseña .heic.
+        ignorados = [f for f in archivos
+                     if not f.startswith('.')
+                     and not f.lower().endswith(IMG + VID)
+                     and not f.lower().endswith(('.txt', '.md'))]
+        for f in ignorados:
+            sueltos.append(f"{c['nombre']}: {f} (hay que convertirlo a "
+                           + ('mp4' if f.lower().endswith(('.mov', '.avi', '.mkv', '.m4v'))
+                              else 'jpg') + ')')
+
         antes = (c.get('fotos'), c.get('videos'), c.get('arbol'))
         c['fotos'], c['videos'], c['arbol'] = fotos, videos, arbol
         if antes != (fotos, videos, arbol):
@@ -136,6 +147,11 @@ def main():
         print('\n'.join(cambios))
     else:
         print('Todo estaba ya al día.')
+
+    if sueltos:
+        print('\n  ¡OJO! archivos que la web NO puede usar y se están quedando fuera:')
+        for x in sueltos:
+            print('    ' + x)
     print('\nAhora ejecuta:  python3 construir.py')
 
 

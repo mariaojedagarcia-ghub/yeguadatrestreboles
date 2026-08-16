@@ -320,6 +320,8 @@ footer.pie{background:var(--verde-osc);color:#9AA79A;padding:52px 0;font-size:13
 .ficha-cab .sub{color:var(--suave);font-size:16px;margin-top:9px}
 .nota-ficha{color:var(--suave);font-size:15.5px;font-style:italic;margin:10px 0 0;max-width:62ch}
 .ficha-cols{display:grid;grid-template-columns:1.35fr 1fr;gap:56px;padding:36px 0}
+/* Sin bloque de texto, los datos ocupan el ancho cómodo de lectura */
+.ficha-cols.sola{grid-template-columns:minmax(0,640px)}
 @media(max-width:800px){.ficha-cols{grid-template-columns:1fr;gap:30px}}
 .bloque h2{font-size:14px;font-family:'Karla',sans-serif;font-weight:700;letter-spacing:.14em;
   text-transform:uppercase;color:var(--oro);margin-bottom:16px}
@@ -535,3 +537,11 @@ body.sin-hero{padding-top:96px}
   .tabla-hijos .cap,.tabla-hijos .otro{grid-column:2;font-size:14px}
 }
 .c-alazana{background:#A85B2C}.c-palomina{background:#E0C27A}.c-perlina{background:#EADDC4}
+
+.tabla-hijos.con-titular .fila{grid-template-columns:60px 1.25fr .8fr 1.1fr 1.1fr}
+.tabla-hijos .tit{color:var(--suave)}
+.tabla-hijos .sin-dato{color:var(--linea)}
+@media(max-width:700px){
+  .tabla-hijos.con-titular .fila{grid-template-columns:52px 1fr}
+  .tabla-hijos .tit{grid-column:2;font-size:14px}
+}

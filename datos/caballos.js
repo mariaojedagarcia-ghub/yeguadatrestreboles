@@ -201,7 +201,12 @@ const CABALLOS = [
     "palmares": [],
     "arbol": "arbol.jpg",
     "hijosLG": 9,
-    "videos": [],
+    "videos": [
+      {
+        "archivo": "video-japonesa.mp4",
+        "poster": "video-japonesa-poster.jpg"
+      }
+    ],
     "igg": "104,22",
     "iggFiab": null,
     "creditoPortada": null,
@@ -298,6 +303,7 @@ const CABALLOS = [
       "02.jpg",
       "03.jpg",
       "04.jpg",
+      "05.jpg",
       "06.jpg"
     ],
     "video": null,
@@ -426,7 +432,12 @@ const CABALLOS = [
     "palmares": [],
     "arbol": "arbol.jpg",
     "hijosLG": 0,
-    "videos": [],
+    "videos": [
+      {
+        "archivo": "video-hacendada.mp4",
+        "poster": "video-hacendada-poster.jpg"
+      }
+    ],
     "igg": null,
     "iggFiab": null,
     "creditoPortada": null
@@ -687,7 +698,9 @@ const CABALLOS = [
     "vendido": false,
     "destacado": false,
     "texto": "",
-    "fotos": [],
+    "fotos": [
+      "portada.jpg"
+    ],
     "video": null,
     "credito": null,
     "palmares": [],
