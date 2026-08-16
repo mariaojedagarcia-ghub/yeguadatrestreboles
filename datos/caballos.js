@@ -415,7 +415,8 @@ const CABALLOS = [
     "destacado": true,
     "texto": "",
     "fotos": [
-      "portada.jpg"
+      "portada.jpg",
+      "01.jpg"
     ],
     "video": null,
     "credito": null,
@@ -743,5 +744,37 @@ const CABALLOS = [
     "iggFiab": null,
     "creditoPortada": null,
     "nota": "Nacido en la yeguada. Hoy ya no está aquí; conserva el nombre con el que se inscribió."
+  },
+  {
+    "slug": "distinguida-xci",
+    "nombre": "Distinguida XCI",
+    "grupo": "yegua",
+    "sexo": "H",
+    "nacimiento": "2012-05-18",
+    "capa": "Torda",
+    "padre": "Nobiliario SM",
+    "padreSlug": null,
+    "madre": "Usía XIII",
+    "madreSlug": null,
+    "criador": "Salvador Miras Gómez",
+    "lugarNacimiento": null,
+    "descendencia": [],
+    "cubriciones": false,
+    "enVenta": false,
+    "vendido": false,
+    "destacado": false,
+    "texto": "",
+    "fotos": [],
+    "video": null,
+    "credito": null,
+    "palmares": [],
+    "arbol": "arbol.jpg",
+    "hijosLG": 5,
+    "videos": [],
+    "igg": "106,66",
+    "iggFiab": "alta",
+    "creditoPortada": null,
+    "hito": null,
+    "nota": null
   }
 ];
