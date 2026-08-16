@@ -489,6 +489,7 @@ MEDIA_RUTAS = """<script>pintarCarrusel('galeria-rutas', [
   {tipo:'video', archivo:'img/servicios/rutas-v1.mp4',   poster:'img/servicios/rutas-v1-poster.jpg', pie:'En marcha'},
   {tipo:'foto',  archivo:'img/servicios/rutas-01.jpg',   pie:'Un alto en el camino'},
   {tipo:'foto',  archivo:'img/servicios/rutas-05.jpg',   pie:'Por la sierra'},
+  {tipo:'video', archivo:'img/servicios/rutas-v5.mp4',  poster:'img/servicios/rutas-v5-poster.jpg', pie:'Al paso'},
   {tipo:'video', archivo:'img/servicios/rutas-v4.mp4',   poster:'img/servicios/rutas-v4-poster.jpg', pie:'Saliendo de la finca'}
 ]);</script>"""
 
