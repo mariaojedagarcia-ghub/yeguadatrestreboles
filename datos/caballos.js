@@ -125,9 +125,9 @@ const CABALLOS = [
     "sexo": "H",
     "nacimiento": "2021-03-28",
     "capa": "Castaña",
-    "padre": null,
+    "padre": "Romero MFE",
     "padreSlug": null,
-    "madre": null,
+    "madre": "Quimera MFE",
     "madreSlug": null,
     "criador": "MFE",
     "lugarNacimiento": null,
@@ -442,9 +442,7 @@ const CABALLOS = [
     "vendido": false,
     "destacado": false,
     "texto": "",
-    "fotos": [
-      "portada.jpg"
-    ],
+    "fotos": [],
     "video": null,
     "credito": null,
     "palmares": [],
