@@ -1,0 +1,9 @@
+FOTOS DE HIJOS NACIDOS FUERA DE LA YEGUADA
+===========================================
+Deja aquí las fotos de los potros de nuestros sementales que hayan
+nacido en otras ganaderías. Ponles un nombre reconocible
+(por ejemplo: hijo-provinciano-yeguada-lopez.jpg) y luego escribe ese
+mismo nombre en el campo "foto" de datos/descendencia.js
+
+Los potros nacidos aquí NO van en esta carpeta: sus fotos están en
+img/caballos/<nombre-del-potro>/

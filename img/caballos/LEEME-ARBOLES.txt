@@ -1,0 +1,18 @@
+ÁRBOLES GENEALÓGICOS
+====================
+
+Cada caballo puede tener tres imágenes en su carpeta:
+
+    portada.jpg    la foto principal (horizontal)
+    01.jpg ...     galería
+    arbol.jpg      el árbol genealógico del Libro Genealógico del PRE
+
+Cuando dejes un arbol.jpg en la carpeta de un caballo, avísame y activo
+el botón "Ver árbol genealógico completo" en su ficha. Se abre a pantalla
+completa y se puede ampliar pinchando encima.
+
+AL CAPTURARLOS
+  - Que entre el árbol ENTERO: la fila de arriba se corta con facilidad.
+  - Cuanta más resolución, mejor. Si el LG deja imprimir o exportar a PDF,
+    pásame el PDF: se ve nítido a cualquier tamaño.
+  - Si capturas de pantalla, pon antes el zoom del navegador al 175-200 %.

@@ -1,0 +1,26 @@
+SITIO WEB — Yeguada Tres Tréboles
+==================================
+
+Para verlo: abre index.html con doble clic. No hace falta nada más.
+
+QUÉ HAY AQUÍ
+  index.html, la-yeguada.html ...   las páginas
+  css/estilo.css                    TODOS los estilos, en un solo archivo
+  js/principal.js                   el menú y los bloques automáticos
+  datos/caballos.js                 LOS DATOS DE LOS CABALLOS
+  img/                              las imágenes
+
+LO QUE HAY QUE TOCAR PARA CAMBIAR ALGO
+  · Un caballo (añadir, corregir, marcar vendido) -> datos/caballos.js
+  · Un color, un tamaño, un margen               -> css/estilo.css
+  · Una foto                                     -> img/caballos/<nombre>/
+
+De datos/caballos.js salen solos: los últimos nacimientos de la portada,
+la lista de ejemplares en venta, las fichas y los enlaces de familia.
+
+POR QUÉ .js Y NO .json
+Para que la web funcione abriendo los archivos directamente, sin servidor.
+El contenido se edita igual.
+
+generar.py y construir.py son los que rehacen las páginas cuando cambia
+el menú o el pie. No hace falta ejecutarlos para ver la web.

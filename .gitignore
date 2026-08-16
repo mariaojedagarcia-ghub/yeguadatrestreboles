@@ -1,0 +1,23 @@
+# ---- Carpetas de trabajo: no van a la web publicada ----
+# _originales: vídeos y fotos originales, muy pesados
+_originales/
+# _to_delete: cosas pendientes de borrar a mano
+_to_delete/
+# _pdf-arboles: PDFs originales de las cartas, llevan el microchip a la vista
+_pdf-arboles/
+# _arboles-pendientes: imágenes intermedias de las cartas
+_arboles-pendientes/
+
+# ---- Basura del sistema y de Python ----
+.DS_Store
+__pycache__/
+*.pyc
+
+# ---- Paquetes de actualización ----
+*.zip
+
+# ---- Originales sin comprimir (los de la web, comprimidos, SÍ se suben) ----
+*.mov
+*.MOV
+*.heic
+*.HEIC
