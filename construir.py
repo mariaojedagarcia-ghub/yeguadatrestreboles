@@ -440,13 +440,15 @@ CUBRICIONES = cab('Cubriciones', 'Nuestros sementales, disponibles para tu yegua
         ('Provinciano SM III', '350 €'),
         ('Tatami JMG', '250 €'),
         ('Extracción veterinaria', '+ 150 €', 'extra'),
-      ], 'La extracción se suma solo si el semen hay que recogerlo y enviarlo. '
-         'Los gastos de envío se facturan aparte, según destino.') + '''
+      ], 'La extracción se suma solo si el semen hay que recogerlo y enviarlo, y se cobra '
+         'cada vez que se hace. El envío se factura aparte, según destino.') + '''
     </div>
     <div class="via-card">
       <h3>Condiciones</h3>
-      <p class="pendiente">Pendiente de definir: garantía de preñez y modalidades
-        (monta natural, semen fresco o refrigerado).</p>
+      <p><strong>El canon de cubrición se paga una sola vez.</strong> Cubre las montas que
+        hagan falta hasta que la yegua quede preñada, sin volver a cobrar por intentarlo.</p>
+      <p>Lo que sí se cobra cada vez es la extracción veterinaria y su envío, porque son
+        gastos que se repiten con cada extracción.</p>
     </div>
   </div>
   <div class="vias" style="grid-template-columns:1fr;margin-top:26px">
