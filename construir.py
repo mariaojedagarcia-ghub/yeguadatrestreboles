@@ -827,6 +827,22 @@ print(f'Generadas {len(SEMENTALES)} páginas de descendencia.')
 # Que ninguna página apunte a una imagen, un vídeo o una hoja de estilos que no
 # existe. Un enlace roto no se nota al mirar el código: se nota cuando alguien
 # abre la web y ve un hueco. Mejor que salte aquí.
+def _existe_exacto(ruta):
+    """¿Existe el archivo con EXACTAMENTE ese nombre?
+
+    os.path.exists() no vale: macOS no distingue mayúsculas, así que da por
+    bueno 'clases-02.jpg' cuando en el disco pone 'clases-02.JPG'. El servidor
+    web sí distingue, y ahí la foto sale rota. Comparando contra el listado de
+    la carpeta la diferencia se ve.
+    """
+    ruta = ruta.split('?')[0]
+    carpeta, nombre = os.path.dirname(ruta), os.path.basename(ruta)
+    try:
+        return nombre in os.listdir(carpeta or '.')
+    except OSError:
+        return False
+
+
 def _comprobar_archivos():
     import glob
     faltan = []
@@ -843,7 +859,7 @@ def _comprobar_archivos():
                 ruta = (os.path.join(RAIZ, m) if m.split('/')[0] in
                         ('img', 'video', 'css', 'js', 'datos')
                         else os.path.normpath(os.path.join(base, m)))
-                if not os.path.exists(ruta.split('?')[0]):
+                if not _existe_exacto(ruta):
                     faltan.append((os.path.basename(f), m))
 
     # las fotos que salen de datos/caballos.js
@@ -856,7 +872,7 @@ def _comprobar_archivos():
         if c.get('arbol'):
             refs.append(c['arbol'])
         for r in refs:
-            if not os.path.exists(os.path.join(carpeta, r)):
+            if not _existe_exacto(os.path.join(carpeta, r)):
                 faltan.append((c['nombre'], f"img/caballos/{c['slug']}/{r}"))
 
     faltan = sorted(set(faltan))
