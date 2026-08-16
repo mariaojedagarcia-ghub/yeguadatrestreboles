@@ -305,6 +305,17 @@ CONTACTO_FRANJA = '''
   </div>
 </div></section>'''
 
+def tarifas(filas, nota=None):
+    """Bloque de precios. Cada fila es (concepto, precio) o (concepto, precio, 'extra')."""
+    salida = []
+    for f in filas:
+        clase = ' extra' if len(f) > 2 else ''
+        salida.append(f'<div class="fila{clase}"><span class="q">{f[0]}</span>'
+                      f'<span class="p">{f[1]}</span></div>')
+    return ('<div class="tarifas">' + ''.join(salida) + '</div>'
+            + (f'<p class="nota-tarifa">{nota}</p>' if nota else ''))
+
+
 FILTROS = '''
     <div class="filtros">
       <div class="fila-filtro" data-filtro="capa">
@@ -424,20 +435,24 @@ CUBRICIONES = cab('Cubriciones', 'Nuestros sementales, disponibles para tu yegua
   <h2 class="tit">Cómo funciona</h2>
   <div class="vias">
     <div class="via-card">
-      <h3>Modalidades</h3>
-      <p class="pendiente">Pendiente de definir: monta natural, inseminación en fresco o refrigerado.</p>
+      <h3>Tarifas</h3>
+      ''' + tarifas([
+        ('Provinciano SM III', '350 €'),
+        ('Tatami JMG', '250 €'),
+        ('Extracción veterinaria', '+ 150 €', 'extra'),
+      ], 'La extracción se suma solo si el semen hay que recogerlo y enviarlo. '
+         'Los gastos de envío se facturan aparte, según destino.') + '''
     </div>
     <div class="via-card">
-      <h3>Tarifas y garantía</h3>
-      <p class="pendiente">Pendiente de definir: precio de la cubrición, garantía de preñez y gastos
-        de mantenimiento si la yegua se queda en la yeguada.</p>
+      <h3>Condiciones</h3>
+      <p class="pendiente">Pendiente de definir: garantía de preñez y modalidades
+        (monta natural, semen fresco o refrigerado).</p>
     </div>
   </div>
   <p class="lead" style="margin-top:34px">Si tu yegua viene a cubrición, puede quedarse con
     nosotros el tiempo que necesite: <a href="pupilaje-picadero.html">ver el pupilaje en
     picadero</a>.</p>
-  <p class="lead" style="margin-top:34px"><em>Esta página no debería publicarse hasta tener las
-    condiciones cerradas.</em></p>
+
 </div></section>
 ''' + CONTACTO_FRANJA
 
@@ -460,8 +475,9 @@ RUTAS = cab('Rutas a caballo', 'Por los caminos de la sierra de Córdoba.', 'Ser
       propios caballos y acompañados en todo momento.</p>
     <p>No hace falta ser jinete: adaptamos el caballo y el recorrido a quien viene. Para los que
       ya montan, la sierra da para mucho más.</p>
-    <p class="pendiente">Pendiente de indicar: modalidades, duración, recorrido, nivel de monta
-      necesario, edad mínima, qué incluye y precios.</p>
+    ''' + tarifas([('Ruta a caballo', '20 € por persona y hora')]) + '''
+    <p class="pendiente">Pendiente de indicar: duración y recorrido de cada ruta, nivel de monta
+      necesario, edad mínima y qué incluye.</p>
   </div>
   <div class="foto-marco"><img src="img/servicios/rutas-01.jpg" alt="Parada durante una ruta a caballo por la sierra de Córdoba"></div>
 </div></section>
@@ -510,8 +526,9 @@ CLASES = cab('Clases de iniciación', 'Aprender a montar desde cero, en la sierr
       acercarse al caballo, cepillarlo, entender cómo funciona y perderle el respeto justo.</p>
     <p>No hace falta traer nada ni saber nada. Solo son clases de iniciación: cuando alguien
       pasa de ahí, lo natural es salir al campo con nosotros de ruta.</p>
-    <p class="pendiente">Pendiente de indicar: duración y frecuencia de las clases, edad mínima,
-      si son individuales o en grupo, qué hay que traer y precios.</p>
+    """ + tarifas([('Clase de iniciación', '20 € por persona y hora')]) + """
+    <p class="pendiente">Pendiente de indicar: frecuencia de las clases, edad mínima,
+      si son individuales o en grupo y qué hay que traer.</p>
   </div>
   <div class="foto-marco"><img src="img/servicios/clases-01.jpg"
     alt="Niña montando con casco en una clase de iniciación de Yeguada Tres Tréboles"></div>
@@ -579,8 +596,15 @@ pagina('servicios.html', 'Servicios | Yeguada Tres Tréboles',
 
 
 # ============================== PUPILAJE ==============================
-NOTA_PRECIOS = ('<p class="pendiente">Pendiente de indicar: tarifas mensuales, qué incluye cada '
-                'modalidad y condiciones de entrada.</p>')
+TARIFAS_PICADERO = tarifas(
+    [('Pupilaje en picadero', '250 € al mes')],
+    'Incluye paja, heno y pienso.')
+
+TARIFAS_SEMI = tarifas(
+    [('Pupilaje en semilibertad', '100 € al mes')])
+
+NOTA_PRECIOS = ('<p class="pendiente">Pendiente de indicar: qué incluye exactamente cada '
+                'modalidad y las condiciones de entrada.</p>')
 
 PUPILAJE = cab('Pupilaje', 'Tu caballo, cuidado como si fuera nuestro.', 'Servicios',
                'img/servicios/semilibertad-01.jpg') + '''
@@ -596,12 +620,14 @@ PUPILAJE = cab('Pupilaje', 'Tu caballo, cuidado como si fuera nuestro.', 'Servic
       <p>En nuestras instalaciones de la sierra de Córdoba. Cuadra y pista, para quien no tiene
         dónde guardar su caballo y quiere venir a montarlo cuando quiera, y para las yeguas
         que vienen a cubrición.</p>
+      <p class="precio-suelto">250 € al mes</p>
       <p><a class="mas" href="pupilaje-picadero.html">Ver el pupilaje en picadero →</a></p>
     </div>
     <div class="via-card">
       <h3>En semilibertad</h3>
       <p>En nuestra finca de Villaharta. El caballo vive en campo, en grupo, moviéndose todo el
         día. La opción más natural para descanso, recría y yeguas de vientre.</p>
+      <p class="precio-suelto">100 € al mes</p>
       <p><a class="mas" href="pupilaje-semilibertad.html">Ver el pupilaje en semilibertad →</a></p>
     </div>
   </div>
@@ -641,7 +667,7 @@ PICADERO = cab('Pupilaje en picadero', 'En nuestras instalaciones, en la sierra 
   <div class="et">Las instalaciones</div>
   <h2 class="tit">Dónde estarían</h2>
   <div id="galeria-picadero"></div>
-  ''' + NOTA_PRECIOS + '''
+  ''' + TARIFAS_PICADERO + NOTA_PRECIOS + '''
 </div></section>
 ''' + CONTACTO_FRANJA
 
@@ -681,7 +707,7 @@ SEMILIBERTAD = cab('Pupilaje en semilibertad', 'En nuestra finca de Villaharta.'
   <div class="et">La finca</div>
   <h2 class="tit">Villaharta</h2>
   <div id="galeria-semi"></div>
-  ''' + NOTA_PRECIOS + '''
+  ''' + TARIFAS_SEMI + NOTA_PRECIOS + '''
 </div></section>
 ''' + CONTACTO_FRANJA
 

@@ -558,3 +558,16 @@ body.sin-hero{padding-top:96px}
   .enlaces-hijos{flex-direction:column;align-items:stretch}
   .enlaces-hijos .ver-arbol{width:100%;text-align:center}
 }
+
+/* ---------- Tarifas ---------- */
+.tarifas{margin:26px 0 0;border-top:1px solid var(--linea)}
+.tarifas .fila{display:flex;justify-content:space-between;align-items:baseline;gap:20px;
+  padding:14px 2px;border-bottom:1px solid var(--linea)}
+.tarifas .fila .q{color:#4A463E;font-size:16px}
+.tarifas .fila .p{font-family:'Cormorant Garamond',Georgia,serif;font-size:27px;
+  color:var(--verde);white-space:nowrap;line-height:1}
+.tarifas .fila.extra .q{color:var(--suave);font-size:15px}
+.tarifas .fila.extra .p{font-size:21px;color:var(--suave)}
+.nota-tarifa{font-size:14.5px;color:var(--suave);margin:14px 0 0;line-height:1.6}
+.precio-suelto{font-family:'Cormorant Garamond',Georgia,serif;font-size:26px;
+  color:var(--verde);margin:14px 0 0;line-height:1}
