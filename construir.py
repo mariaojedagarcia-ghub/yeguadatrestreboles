@@ -65,8 +65,7 @@ PORTADA = '''
 
 <section class="premio"><div class="wrap dos">
   <div class="foto-marco"><img src="img/caballos/faraona-mfe/portada.jpg"
-      alt="Faraona MFE, subcampeona de Europa FIECVAL 2026">
-    <span class="credito">Foto: Picazo audiovisual</span></div>
+      alt="Faraona MFE, subcampeona de Europa FIECVAL 2026"></div>
   <div>
     <div class="medalla">Subcampeona de Europa · FIECVAL 2026</div>
     <div class="et">Faraona MFE</div>

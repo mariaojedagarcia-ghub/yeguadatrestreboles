@@ -144,7 +144,9 @@ const CABALLOS = [
       "01.jpg",
       "02.jpg",
       "03.jpg",
-      "04.jpg"
+      "04.jpg",
+      "05.jpg",
+      "06.jpg"
     ],
     "video": null,
     "credito": "Picazo audiovisual",
@@ -241,7 +243,7 @@ const CABALLOS = [
     ],
     "igg": "110,48",
     "iggFiab": "baja",
-    "creditoPortada": "Picazo audiovisual"
+    "creditoPortada": null
   },
   {
     "slug": "hacendada-mfe",
@@ -442,7 +444,9 @@ const CABALLOS = [
     "vendido": false,
     "destacado": false,
     "texto": "",
-    "fotos": [],
+    "fotos": [
+      "portada.jpg"
+    ],
     "video": null,
     "credito": null,
     "palmares": [],
