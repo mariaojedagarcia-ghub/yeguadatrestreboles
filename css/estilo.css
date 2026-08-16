@@ -454,3 +454,37 @@ body.sin-hero{padding-top:96px}
 .hero-video.visible{opacity:1}
 /* si el sistema pide menos animación, se queda la foto fija */
 @media (prefers-reduced-motion: reduce){.hero-video{display:none}}
+
+/* ---------- Carrusel de servicios (rutas, pupilaje) ---------- */
+.carrusel{position:relative;margin-top:40px}
+.carrusel .pista{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;
+  scroll-padding-left:0;padding:4px 0 14px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.carrusel .pista::-webkit-scrollbar{display:none}
+.carrusel .pista:focus-visible{outline:2px solid var(--verde-claro);outline-offset:6px}
+.carrusel .pieza{flex:0 0 calc((100% - 32px) / 3);aspect-ratio:1/1;scroll-snap-align:start;
+  position:relative;padding:0;border:1px solid var(--linea);background:var(--verde-osc);
+  border-radius:2px;overflow:hidden;cursor:pointer;display:block}
+@media(max-width:900px){.carrusel .pieza{flex-basis:calc((100% - 16px) / 2)}}
+@media(max-width:620px){.carrusel .pieza{flex-basis:100%}}
+.carrusel .pieza img,.carrusel .pieza video{width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .5s cubic-bezier(.2,.7,.3,1)}
+.carrusel .pieza:hover img,.carrusel .pieza:hover video{transform:scale(1.05)}
+.carrusel .pieza::after{content:'';position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(15,25,16,0) 45%,rgba(15,25,16,.55) 100%);
+  opacity:0;transition:opacity .3s}
+.carrusel .pieza:hover::after{opacity:1}
+.carrusel .pie-pieza{position:absolute;left:16px;right:16px;bottom:14px;z-index:2;
+  color:#fff;font-size:13.5px;letter-spacing:.02em;text-align:left;
+  opacity:0;transform:translateY(6px);transition:.3s;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+.carrusel .pieza:hover .pie-pieza{opacity:1;transform:translateY(0)}
+.carrusel .flecha{position:absolute;top:calc(50% - 9px);transform:translateY(-50%);z-index:3;
+  width:46px;height:46px;border-radius:50%;border:1px solid var(--linea);background:var(--papel);
+  color:var(--verde);font-size:26px;line-height:1;cursor:pointer;
+  box-shadow:0 6px 20px rgba(35,32,25,.14);transition:.2s;display:flex;
+  align-items:center;justify-content:center;padding-bottom:3px}
+.carrusel .flecha:hover{background:var(--verde);color:#fff;border-color:var(--verde)}
+.carrusel .flecha.ant{left:-14px}
+.carrusel .flecha.sig{right:-14px}
+.carrusel .flecha.apagada{opacity:0;pointer-events:none}
+.carrusel.sin-flechas .flecha{display:none}
+@media(max-width:620px){.carrusel .flecha{display:none}}

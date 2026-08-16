@@ -450,7 +450,7 @@ pagina('cubriciones.html', 'Cubriciones PRE en Córdoba | Yeguada Tres Tréboles
 
 # ============================== RUTAS ==============================
 RUTAS = cab('Rutas a caballo', 'Por los caminos de la sierra de Córdoba.', 'Servicios',
-            'img/servicios/rutas-02.jpg') + '''
+            'img/servicios/rutas-04.jpg') + '''
 <section><div class="wrap dos">
   <div class="prosa">
     <div class="et">Las rutas</div>
@@ -469,7 +469,7 @@ RUTAS = cab('Rutas a caballo', 'Por los caminos de la sierra de Córdoba.', 'Ser
 <section class="fondo-papel"><div class="wrap">
   <div class="et">Por los caminos</div>
   <h2 class="tit">Así son las salidas</h2>
-  <div class="galeria" id="galeria-rutas" style="margin-top:40px"></div>
+  <div id="galeria-rutas"></div>
 </div></section>
 
 <section><div class="wrap centrado prosa">
@@ -478,10 +478,16 @@ RUTAS = cab('Rutas a caballo', 'Por los caminos de la sierra de Córdoba.', 'Ser
 </div></section>
 ''' + CONTACTO_FRANJA
 
-MEDIA_RUTAS = """<script>pintarGaleria('galeria-rutas', [
-  {tipo:'video', archivo:'video/rutas.mp4', poster:'video/rutas-poster.jpg', pie:'De ruta por la sierra'},
-  {tipo:'foto',  archivo:'img/servicios/rutas-01.jpg', pie:'Camino entre encinas'},
-  {tipo:'foto',  archivo:'img/servicios/rutas-02.jpg', pie:'La sierra de Córdoba'}
+MEDIA_RUTAS = """<script>pintarCarrusel('galeria-rutas', [
+  {tipo:'video', archivo:'video/rutas.mp4',              poster:'video/rutas-poster.jpg',           pie:'De ruta por la sierra'},
+  {tipo:'foto',  archivo:'img/servicios/rutas-04.jpg',   pie:'Al paso por el campo'},
+  {tipo:'video', archivo:'img/servicios/rutas-v3.mp4',   poster:'img/servicios/rutas-v3-poster.jpg', pie:'Desde el aire'},
+  {tipo:'foto',  archivo:'img/servicios/rutas-02.jpg',   pie:'La sierra de Córdoba'},
+  {tipo:'video', archivo:'img/servicios/rutas-v2.mp4',   poster:'img/servicios/rutas-v2-poster.jpg', pie:'Por el camino'},
+  {tipo:'foto',  archivo:'img/servicios/rutas-03.jpg',   pie:'Entre encinas'},
+  {tipo:'video', archivo:'img/servicios/rutas-v1.mp4',   poster:'img/servicios/rutas-v1-poster.jpg', pie:'En marcha'},
+  {tipo:'foto',  archivo:'img/servicios/rutas-01.jpg',   pie:'Un alto en el camino'},
+  {tipo:'video', archivo:'img/servicios/rutas-v4.mp4',   poster:'img/servicios/rutas-v4-poster.jpg', pie:'Saliendo de la finca'}
 ]);</script>"""
 
 pagina('rutas.html', 'Rutas a caballo por la sierra de Córdoba | Tres Tréboles',
@@ -551,12 +557,12 @@ PICADERO = cab('Pupilaje en picadero', 'En nuestras instalaciones, en la sierra 
 <section class="fondo-papel"><div class="wrap">
   <div class="et">Las instalaciones</div>
   <h2 class="tit">Dónde estarían</h2>
-  <div class="galeria" id="galeria-picadero" style="margin-top:40px"></div>
+  <div id="galeria-picadero"></div>
   ''' + NOTA_PRECIOS + '''
 </div></section>
 ''' + CONTACTO_FRANJA
 
-MEDIA_PICADERO = """<script>pintarGaleria('galeria-picadero', [
+MEDIA_PICADERO = """<script>pintarCarrusel('galeria-picadero', [
   {tipo:'foto', archivo:'img/servicios/picadero-01.jpg', pie:'Las instalaciones desde el aire'},
   {tipo:'foto', archivo:'img/servicios/picadero-02.jpg', pie:'La pista'},
   {tipo:'foto', archivo:'img/servicios/picadero-03.jpg', pie:'La finca'}
@@ -591,12 +597,12 @@ SEMILIBERTAD = cab('Pupilaje en semilibertad', 'En nuestra finca de Villaharta.'
 <section class="fondo-papel"><div class="wrap">
   <div class="et">La finca</div>
   <h2 class="tit">Villaharta</h2>
-  <div class="galeria" id="galeria-semi" style="margin-top:40px"></div>
+  <div id="galeria-semi"></div>
   ''' + NOTA_PRECIOS + '''
 </div></section>
 ''' + CONTACTO_FRANJA
 
-MEDIA_SEMI = """<script>pintarGaleria('galeria-semi', [
+MEDIA_SEMI = """<script>pintarCarrusel('galeria-semi', [
   {tipo:'foto', archivo:'img/servicios/semilibertad-01.jpg', pie:'La finca de Villaharta'},
   {tipo:'foto', archivo:'img/servicios/semilibertad-02.jpg', pie:'En manada, en campo abierto'},
   {tipo:'foto', archivo:'img/servicios/semilibertad-03.jpg', pie:'Vida en semilibertad'}

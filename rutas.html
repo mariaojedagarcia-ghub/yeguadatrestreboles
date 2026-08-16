@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/estilo.css?v=725c4fe8">
+<link rel="stylesheet" href="css/estilo.css?v=aef5f02b">
 </head>
 <body>
 
@@ -30,7 +30,7 @@
 
 
 <div class="cab-pagina">
-  <div class="foto-fondo" style="background-image:url('img/servicios/rutas-02.jpg')"></div>
+  <div class="foto-fondo" style="background-image:url('img/servicios/rutas-04.jpg')"></div>
   <div class="velo"></div>
   <div class="wrap"><div class="txt">
     <div class="migas">Servicios</div>
@@ -56,7 +56,7 @@
 <section class="fondo-papel"><div class="wrap">
   <div class="et">Por los caminos</div>
   <h2 class="tit">Así son las salidas</h2>
-  <div class="galeria" id="galeria-rutas" style="margin-top:40px"></div>
+  <div id="galeria-rutas"></div>
 </div></section>
 
 <section><div class="wrap centrado prosa">
@@ -82,13 +82,19 @@
 </div></footer>
 
 <script>const RUTA = '';</script>
-<script src="datos/caballos.js?v=89560bc8"></script>
+<script src="datos/caballos.js?v=1b2ebd94"></script>
 <script src="datos/descendencia.js?v=ee8038dd"></script>
-<script src="js/principal.js?v=28443d1b"></script>
-<script>pintarGaleria('galeria-rutas', [
-  {tipo:'video', archivo:'video/rutas.mp4', poster:'video/rutas-poster.jpg', pie:'De ruta por la sierra'},
-  {tipo:'foto',  archivo:'img/servicios/rutas-01.jpg', pie:'Camino entre encinas'},
-  {tipo:'foto',  archivo:'img/servicios/rutas-02.jpg', pie:'La sierra de Córdoba'}
+<script src="js/principal.js?v=83dd6a01"></script>
+<script>pintarCarrusel('galeria-rutas', [
+  {tipo:'video', archivo:'video/rutas.mp4',              poster:'video/rutas-poster.jpg',           pie:'De ruta por la sierra'},
+  {tipo:'foto',  archivo:'img/servicios/rutas-04.jpg',   pie:'Al paso por el campo'},
+  {tipo:'video', archivo:'img/servicios/rutas-v3.mp4',   poster:'img/servicios/rutas-v3-poster.jpg', pie:'Desde el aire'},
+  {tipo:'foto',  archivo:'img/servicios/rutas-02.jpg',   pie:'La sierra de Córdoba'},
+  {tipo:'video', archivo:'img/servicios/rutas-v2.mp4',   poster:'img/servicios/rutas-v2-poster.jpg', pie:'Por el camino'},
+  {tipo:'foto',  archivo:'img/servicios/rutas-03.jpg',   pie:'Entre encinas'},
+  {tipo:'video', archivo:'img/servicios/rutas-v1.mp4',   poster:'img/servicios/rutas-v1-poster.jpg', pie:'En marcha'},
+  {tipo:'foto',  archivo:'img/servicios/rutas-01.jpg',   pie:'Un alto en el camino'},
+  {tipo:'video', archivo:'img/servicios/rutas-v4.mp4',   poster:'img/servicios/rutas-v4-poster.jpg', pie:'Saliendo de la finca'}
 ]);</script>
 </body>
 </html>

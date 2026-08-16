@@ -442,7 +442,9 @@ const CABALLOS = [
     "vendido": false,
     "destacado": false,
     "texto": "",
-    "fotos": [],
+    "fotos": [
+      "portada.jpg"
+    ],
     "video": null,
     "credito": null,
     "palmares": [],

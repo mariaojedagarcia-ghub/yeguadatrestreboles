@@ -432,11 +432,15 @@ function construirGaleria(c){
   }).join('') + '</div>';
 }
 
-/* Galería suelta para las páginas de servicios (rutas, pupilaje…).
+/* Carrusel para las páginas de servicios (rutas, pupilaje…).
    Se le pasa el id del contenedor y una lista de piezas:
      {tipo:'foto'|'video', archivo:'ruta/al/archivo', poster:'…', pie:'texto'}
-   Las rutas son relativas a la raíz del sitio. */
-function pintarGaleria(id, piezas){
+   Las rutas son relativas a la raíz del sitio.
+
+   Piezas cuadradas que se deslizan de una en una. Se maneja con las flechas,
+   arrastrando el dedo en el móvil o con el teclado. Al pulsar una se abre
+   grande en el visor. */
+function pintarCarrusel(id, piezas){
   const caja = document.getElementById(id);
   if (!caja) return;
 
@@ -447,19 +451,57 @@ function pintarGaleria(id, piezas){
     nombre: p.pie || ''
   }));
 
-  caja.innerHTML = MEDIA.map((m, i) => {
+  const tarjetas = MEDIA.map((m, i) => {
+    const pie = m.nombre ? '<span class="pie-pieza">' + m.nombre + '</span>' : '';
     if (m.tipo === 'foto'){
       return '<button class="pieza" onclick="abrirMedia(' + i + ')" aria-label="Ampliar foto">' +
-        '<img src="' + m.src + '" alt="' + m.nombre + '" loading="lazy"></button>';
+        '<img src="' + m.src + '" alt="' + m.nombre + '" loading="lazy">' + pie + '</button>';
     }
     const fondo = m.poster
       ? '<img src="' + m.poster + '" alt="' + m.nombre + '" loading="lazy">'
       : '<video src="' + m.src + '#t=0.5" preload="metadata" muted playsinline></video>';
     return '<button class="pieza video" onclick="abrirMedia(' + i + ')" aria-label="Ver vídeo">' +
       fondo + '<span class="play"><svg viewBox="0 0 24 24" fill="currentColor">' +
-      '<path d="M8 5.5v13l11-6.5z"/></svg></span></button>';
+      '<path d="M8 5.5v13l11-6.5z"/></svg></span>' + pie + '</button>';
   }).join('');
+
+  caja.className = 'carrusel';
+  caja.innerHTML =
+    '<div class="pista" tabindex="0">' + tarjetas + '</div>' +
+    '<button class="flecha ant" aria-label="Anterior">‹</button>' +
+    '<button class="flecha sig" aria-label="Siguiente">›</button>';
+
+  const pista = caja.querySelector('.pista');
+  const ant   = caja.querySelector('.flecha.ant');
+  const sig   = caja.querySelector('.flecha.sig');
+
+  const paso = () => {
+    const p = pista.querySelector('.pieza');
+    return p ? p.getBoundingClientRect().width + 16 : 300;   // 16 = hueco entre piezas
+  };
+  const mover = d => pista.scrollBy({left: d * paso(), behavior: 'smooth'});
+
+  ant.onclick = () => mover(-1);
+  sig.onclick = () => mover(1);
+  pista.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight'){ e.preventDefault(); mover(1); }
+    if (e.key === 'ArrowLeft'){  e.preventDefault(); mover(-1); }
+  });
+
+  /* Las flechas se apagan al llegar a los extremos */
+  function estado(){
+    const fin = pista.scrollWidth - pista.clientWidth - 2;
+    ant.classList.toggle('apagada', pista.scrollLeft <= 2);
+    sig.classList.toggle('apagada', pista.scrollLeft >= fin);
+    caja.classList.toggle('sin-flechas', pista.scrollWidth <= pista.clientWidth + 2);
+  }
+  pista.addEventListener('scroll', estado, {passive:true});
+  window.addEventListener('resize', estado);
+  estado();
 }
+
+/* Nombre anterior, por si alguna página todavía lo usa */
+const pintarGaleria = pintarCarrusel;
 
 function abrirMedia(i){
   let idx = i;
