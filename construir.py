@@ -449,9 +449,14 @@ CUBRICIONES = cab('Cubriciones', 'Nuestros sementales, disponibles para tu yegua
         (monta natural, semen fresco o refrigerado).</p>
     </div>
   </div>
-  <p class="lead" style="margin-top:34px">Si tu yegua viene a cubrición, puede quedarse con
-    nosotros el tiempo que necesite: <a href="pupilaje-picadero.html">ver el pupilaje en
-    picadero</a>.</p>
+  <div class="vias" style="grid-template-columns:1fr;margin-top:26px">
+    <div class="via-card">
+      <h3>Si tu yegua se queda aquí</h3>
+      <p>Puede quedarse con nosotros el tiempo que necesite, con el mismo cuidado que las
+        nuestras: su sitio, su comida y control diario.</p>
+      ''' + tarifas([('Estancia de la yegua', '7 € al día')]) + '''
+    </div>
+  </div>
 
 </div></section>
 ''' + CONTACTO_FRANJA
@@ -603,9 +608,6 @@ TARIFAS_PICADERO = tarifas(
 TARIFAS_SEMI = tarifas(
     [('Pupilaje en semilibertad', '100 € al mes')])
 
-NOTA_PRECIOS = ('<p class="pendiente">Pendiente de indicar: qué incluye exactamente cada '
-                'modalidad y las condiciones de entrada.</p>')
-
 PUPILAJE = cab('Pupilaje', 'Tu caballo, cuidado como si fuera nuestro.', 'Servicios',
                'img/servicios/semilibertad-01.jpg') + '''
 <section><div class="wrap">
@@ -631,8 +633,6 @@ PUPILAJE = cab('Pupilaje', 'Tu caballo, cuidado como si fuera nuestro.', 'Servic
       <p><a class="mas" href="pupilaje-semilibertad.html">Ver el pupilaje en semilibertad →</a></p>
     </div>
   </div>
-
-  ''' + NOTA_PRECIOS + '''
 </div></section>
 ''' + CONTACTO_FRANJA
 
@@ -654,26 +654,32 @@ PICADERO = cab('Pupilaje en picadero', 'En nuestras instalaciones, en la sierra 
     <p>Es la solución para quien no tiene dónde guardar su caballo y quiere venir a montarlo
       cuando le apetezca, sin depender de nadie. También para las yeguas que vienen a que las
       cubra nuestro semental y se quedan aquí el tiempo que necesiten.</p>
+    <p>En el precio entra todo lo que el caballo necesita para estar bien: <strong>su cama de
+      paja, su heno y su pienso</strong>, en la cantidad que le corresponda según su edad y el
+      trabajo que haga. Sin extras por la comida ni cuentas aparte a fin de mes.</p>
+    <p>Del cuidado nos ocupamos nosotros. Tu caballo entra en la misma rutina que los nuestros
+      y lo vemos todos los días, así que si algo no va bien se nota pronto. Aquí no es un
+      caballo más: es uno de los que hay que atender, igual que los de casa.</p>
+    ''' + TARIFAS_PICADERO + '''
     <ul class="datos" style="margin-top:26px">
       <li><span>Dónde</span><span>Urbanización 7 Fincas · Córdoba</span></li>
       <li><span>Modalidad</span><span>Cuadra y pista</span></li>
       <li><span>Para</span><span>Guardar tu caballo · Yeguas de cubrición</span></li>
     </ul>
   </div>
-  <div class="foto-marco"><img src="img/servicios/picadero-02.jpg" alt="Instalaciones del picadero de Yeguada Tres Tréboles"></div>
+  <div class="foto-marco"><img src="img/servicios/pupilaje.jpg" alt="Dos yeguas a pupilaje en el picadero de Yeguada Tres Tréboles"></div>
 </div></section>
 
 <section class="fondo-papel"><div class="wrap">
   <div class="et">Las instalaciones</div>
   <h2 class="tit">Dónde estarían</h2>
   <div id="galeria-picadero"></div>
-  ''' + TARIFAS_PICADERO + NOTA_PRECIOS + '''
 </div></section>
 ''' + CONTACTO_FRANJA
 
 MEDIA_PICADERO = """<script>pintarCarrusel('galeria-picadero', [
   {tipo:'foto', archivo:'img/servicios/picadero-01.jpg', pie:'Las instalaciones desde el aire'},
-  {tipo:'foto', archivo:'img/servicios/picadero-02.jpg', pie:'La pista'},
+  {tipo:'foto', archivo:'img/servicios/pupilaje.jpg',    pie:'Caballos a pupilaje en el picadero'},
   {tipo:'foto', archivo:'img/servicios/picadero-03.jpg', pie:'La finca'}
 ]);</script>"""
 
@@ -694,6 +700,10 @@ SEMILIBERTAD = cab('Pupilaje en semilibertad', 'En nuestra finca de Villaharta.'
     <p>Es la forma de vida que mejor les sienta. Se nota en las patas, en la cabeza y en el
       carácter. Lo usamos con nuestras propias yeguas y con los potros, y lo ofrecemos también
       a quien quiera dar un descanso a su caballo, criar o recriar en condiciones naturales.</p>
+    <p>Aunque estén sueltos, no están solos: los revisamos con regularidad y se les completa la
+      comida cuando el campo no da lo suficiente, que en verano y en pleno invierno es casi
+      siempre. Un caballo en el campo necesita menos manejo, pero no menos atención.</p>
+    ''' + TARIFAS_SEMI + '''
     <ul class="datos" style="margin-top:26px">
       <li><span>Dónde</span><span>Finca en Villaharta · Córdoba</span></li>
       <li><span>Modalidad</span><span>Campo abierto, en manada</span></li>
@@ -707,7 +717,6 @@ SEMILIBERTAD = cab('Pupilaje en semilibertad', 'En nuestra finca de Villaharta.'
   <div class="et">La finca</div>
   <h2 class="tit">Villaharta</h2>
   <div id="galeria-semi"></div>
-  ''' + TARIFAS_SEMI + NOTA_PRECIOS + '''
 </div></section>
 ''' + CONTACTO_FRANJA
 
