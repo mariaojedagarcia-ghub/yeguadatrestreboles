@@ -507,3 +507,8 @@ body.sin-hero{padding-top:96px}
   transition:color .2s,border-color .2s,background .2s}
 .redes a:hover{color:#fff;border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.07)}
 .redes svg{width:18px;height:18px}
+
+/* El hierro de la ganadería, en La Yeguada */
+.hierro .dos{grid-template-columns:.8fr 1.2fr;gap:60px}
+.hierro .foto-marco{max-width:400px;margin:0 auto}
+@media(max-width:880px){.hierro .dos{grid-template-columns:1fr}}
