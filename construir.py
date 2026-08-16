@@ -480,11 +480,10 @@ RUTAS = cab('Rutas a caballo', 'Por los caminos de la sierra de Córdoba.', 'Ser
     <p>Salir a caballo entre encinas, con la sierra de Córdoba delante y sin más ruido que el de
       los cascos. Rutas guiadas por los caminos que recorremos todos los días, con nuestros
       propios caballos y acompañados en todo momento.</p>
-    <p>No hace falta ser jinete: adaptamos el caballo y el recorrido a quien viene. Para los que
-      ya montan, la sierra da para mucho más.</p>
+    <p><strong>Para cualquier nivel.</strong> No hace falta saber montar: a cada jinete se le
+      asigna un caballo acorde con su nivel, y de eso nos encargamos nosotros. Con los nuestros
+      no hay sorpresas, porque los conocemos uno a uno y sabemos cuál va bien con quién.</p>
     ''' + tarifas([('Ruta a caballo', '20 € por persona y hora')]) + '''
-    <p class="pendiente">Pendiente de indicar: duración y recorrido de cada ruta, nivel de monta
-      necesario, edad mínima y qué incluye.</p>
   </div>
   <div class="foto-marco"><img src="img/servicios/rutas-01.jpg" alt="Parada durante una ruta a caballo por la sierra de Córdoba"></div>
 </div></section>
@@ -495,10 +494,6 @@ RUTAS = cab('Rutas a caballo', 'Por los caminos de la sierra de Córdoba.', 'Ser
   <div id="galeria-rutas"></div>
 </div></section>
 
-<section><div class="wrap centrado prosa">
-  <p><em>Antes de publicar esta página hay que confirmar la situación respecto a la normativa
-    de turismo activo de Andalucía y el seguro de responsabilidad civil.</em></p>
-</div></section>
 ''' + CONTACTO_FRANJA
 
 MEDIA_RUTAS = """<script>pintarCarrusel('galeria-rutas', [
@@ -534,8 +529,6 @@ CLASES = cab('Clases de iniciación', 'Aprender a montar desde cero, en la sierr
     <p>No hace falta traer nada ni saber nada. Solo son clases de iniciación: cuando alguien
       pasa de ahí, lo natural es salir al campo con nosotros de ruta.</p>
     """ + tarifas([('Clase de iniciación', '20 € por persona y hora')]) + """
-    <p class="pendiente">Pendiente de indicar: frecuencia de las clases, edad mínima,
-      si son individuales o en grupo y qué hay que traer.</p>
   </div>
   <div class="foto-marco"><img src="img/servicios/clases-01.jpg"
     alt="Niña montando con casco en una clase de iniciación de Yeguada Tres Tréboles"></div>
