@@ -498,6 +498,89 @@ pagina('rutas.html', 'Rutas a caballo por la sierra de Córdoba | Tres Tréboles
        RUTAS, scripts=MEDIA_RUTAS)
 
 
+# ============================== CLASES DE INICIACIÓN ==============================
+CLASES = cab('Clases de iniciación', 'Aprender a montar desde cero, en la sierra de Córdoba.',
+             'Servicios', 'img/servicios/picadero-02.jpg') + """
+<section><div class="wrap dos">
+  <div class="prosa">
+    <div class="et">Las clases</div>
+    <h2 class="tit" style="margin-bottom:26px">Empezar de cero,<br>sin prisa</h2>
+    <p>Clases de iniciación para niños y adultos que nunca han montado. Se aprende con
+      nuestros caballos, en nuestro picadero, y se empieza por donde hay que empezar:
+      acercarse al caballo, cepillarlo, entender cómo funciona y perderle el respeto justo.</p>
+    <p>No hace falta traer nada ni saber nada. Solo son clases de iniciación: cuando alguien
+      pasa de ahí, lo natural es salir al campo con nosotros de ruta.</p>
+    <p class="pendiente">Pendiente de indicar: duración y frecuencia de las clases, edad mínima,
+      si son individuales o en grupo, qué hay que traer y precios.</p>
+  </div>
+  <div class="foto-marco"><img src="img/servicios/picadero-01.jpg"
+    alt="Picadero de Yeguada Tres Tréboles, donde se dan las clases de iniciación"></div>
+</div></section>
+
+<section class="fondo-papel"><div class="wrap">
+  <div class="et">Dónde se dan</div>
+  <h2 class="tit">Nuestro picadero</h2>
+  <div id="galeria-clases"></div>
+</div></section>
+
+<section><div class="wrap centrado prosa">
+  <p><em>Antes de publicar esta página hay que confirmar la parte legal: seguro de
+    responsabilidad civil y titulación necesaria para impartir clases.</em></p>
+</div></section>
+""" + CONTACTO_FRANJA
+
+MEDIA_CLASES = """<script>pintarCarrusel('galeria-clases', [
+  {tipo:'foto', archivo:'img/servicios/picadero-02.jpg', pie:'La pista'},
+  {tipo:'foto', archivo:'img/servicios/picadero-01.jpg', pie:'Las instalaciones'},
+  {tipo:'foto', archivo:'img/servicios/picadero-03.jpg', pie:'La finca'}
+]);</script>"""
+
+pagina('clases.html', 'Clases de iniciación a caballo en Córdoba | Tres Tréboles',
+       'Clases de iniciación a la monta para niños y adultos en la sierra de Córdoba, '
+       'en el picadero de Yeguada Tres Tréboles.',
+       CLASES, scripts=MEDIA_CLASES)
+
+
+# ============================== SERVICIOS (índice) ==============================
+SERVICIOS = cab('Servicios', 'Todo lo que hacemos, además de criar.', 'Yeguada Tres Tréboles',
+                'img/servicios/rutas-04.jpg') + """
+<section><div class="wrap">
+  <p class="lead" style="max-width:66ch;margin-top:0">La yeguada es lo primero, pero no lo único.
+    Estos son los servicios que ofrecemos, todos con nuestros caballos y en nuestras
+    instalaciones de la sierra de Córdoba.</p>
+
+  <div class="vias" style="margin-top:50px">
+    <div class="via-card">
+      <h3>Cubriciones</h3>
+      <p>Nuestros sementales para tu yegua. Los mismos con los que criamos nosotros.</p>
+      <p><a class="mas" href="cubriciones.html">Ver las cubriciones →</a></p>
+    </div>
+    <div class="via-card">
+      <h3>Pupilaje</h3>
+      <p>Guardamos y cuidamos tu caballo: en el picadero, o en semilibertad en nuestra
+        finca de Villaharta.</p>
+      <p><a class="mas" href="pupilaje.html">Ver el pupilaje →</a></p>
+    </div>
+    <div class="via-card">
+      <h3>Rutas a caballo</h3>
+      <p>Salidas guiadas por los caminos de la sierra, con nuestros caballos.</p>
+      <p><a class="mas" href="rutas.html">Ver las rutas →</a></p>
+    </div>
+    <div class="via-card">
+      <h3>Clases de iniciación</h3>
+      <p>Para niños y adultos que empiezan de cero, en nuestro picadero.</p>
+      <p><a class="mas" href="clases.html">Ver las clases →</a></p>
+    </div>
+  </div>
+</div></section>
+""" + CONTACTO_FRANJA
+
+pagina('servicios.html', 'Servicios | Yeguada Tres Tréboles',
+       'Cubriciones, pupilaje, rutas a caballo y clases de iniciación en Yeguada Tres Tréboles, '
+       'en la sierra de Córdoba.',
+       SERVICIOS)
+
+
 # ============================== PUPILAJE ==============================
 NOTA_PRECIOS = ('<p class="pendiente">Pendiente de indicar: tarifas mensuales, qué incluye cada '
                 'modalidad y condiciones de entrada.</p>')

@@ -28,13 +28,21 @@ SUB_PUPILAJE = [
     ('En semilibertad', 'pupilaje-semilibertad.html', None),
 ]
 
+# Los cuatro servicios van juntos en un solo desplegable: si cada uno ocupa
+# su sitio arriba, el menú no cabe en un portátil.
+SUB_SERVICIOS = [
+    ('Cubriciones',              'cubriciones.html',           None),
+    ('Pupilaje en picadero',     'pupilaje-picadero.html',     None),
+    ('Pupilaje en semilibertad', 'pupilaje-semilibertad.html', None),
+    ('Rutas a caballo',          'rutas.html',                 None),
+    ('Clases de iniciación',     'clases.html',                None),
+]
+
 MENU = [
     ('Inicio',            'index.html',       None),
     ('La Yeguada',        'la-yeguada.html',  None),
     ('Nuestros caballos', 'caballos.html',    SUB_CABALLOS),
-    ('Cubriciones',       'cubriciones.html', None),
-    ('Pupilaje',          'pupilaje.html',    SUB_PUPILAJE),
-    ('Rutas',             'rutas.html',       None),
+    ('Servicios',         'servicios.html',   SUB_SERVICIOS),
     ('En venta',          'en-venta.html',    None),
 ]
 SUB = SUB_CABALLOS

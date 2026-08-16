@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cubriciones PRE en Córdoba | Yeguada Tres Tréboles</title>
-<meta name="description" content="Cubriciones con sementales de Pura Raza Española en Córdoba. Provinciano SM III y Tatami JMG, de Yeguada Tres Tréboles.">
+<title>Clases de iniciación a caballo en Córdoba | Tres Tréboles</title>
+<meta name="description" content="Clases de iniciación a la monta para niños y adultos en la sierra de Córdoba, en el picadero de Yeguada Tres Tréboles.">
 <link rel="icon" href="img/marca/favicon-512.png">
 <link rel="apple-touch-icon" href="img/marca/favicon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,44 +30,39 @@
 
 
 <div class="cab-pagina">
-  <div class="foto-fondo" style="background-image:url('img/portada/franja.jpg')"></div>
+  <div class="foto-fondo" style="background-image:url('img/servicios/picadero-02.jpg')"></div>
   <div class="velo"></div>
   <div class="wrap"><div class="txt">
     <div class="migas">Servicios</div>
-    <h1>Cubriciones</h1>
-    <p>Nuestros sementales, disponibles para tu yegua.</p>
+    <h1>Clases de iniciación</h1>
+    <p>Aprender a montar desde cero, en la sierra de Córdoba.</p>
   </div></div>
 </div>
-<section><div class="wrap">
-  <p class="lead" style="max-width:66ch;margin-top:0">Ofrecemos nuestros sementales para cubrición.
-    Son los mismos caballos con los que criamos nosotros: lo que ves en nuestros potros es lo que
-    puedes esperar.</p>
-  <div class="rejilla" id="rejilla"></div>
-  <div class="enlaces-hijos">
-    <a class="ver-arbol" href="hijos-de-provinciano-sm-iii.html">Ver los hijos de Provinciano</a>
-    <a class="ver-arbol" href="hijos-de-tatami-jmg.html">Ver los hijos de Tatami</a>
+<section><div class="wrap dos">
+  <div class="prosa">
+    <div class="et">Las clases</div>
+    <h2 class="tit" style="margin-bottom:26px">Empezar de cero,<br>sin prisa</h2>
+    <p>Clases de iniciación para niños y adultos que nunca han montado. Se aprende con
+      nuestros caballos, en nuestro picadero, y se empieza por donde hay que empezar:
+      acercarse al caballo, cepillarlo, entender cómo funciona y perderle el respeto justo.</p>
+    <p>No hace falta traer nada ni saber nada. Solo son clases de iniciación: cuando alguien
+      pasa de ahí, lo natural es salir al campo con nosotros de ruta.</p>
+    <p class="pendiente">Pendiente de indicar: duración y frecuencia de las clases, edad mínima,
+      si son individuales o en grupo, qué hay que traer y precios.</p>
   </div>
+  <div class="foto-marco"><img src="img/servicios/picadero-01.jpg"
+    alt="Picadero de Yeguada Tres Tréboles, donde se dan las clases de iniciación"></div>
 </div></section>
 
 <section class="fondo-papel"><div class="wrap">
-  <div class="et">Condiciones</div>
-  <h2 class="tit">Cómo funciona</h2>
-  <div class="vias">
-    <div class="via-card">
-      <h3>Modalidades</h3>
-      <p class="pendiente">Pendiente de definir: monta natural, inseminación en fresco o refrigerado.</p>
-    </div>
-    <div class="via-card">
-      <h3>Tarifas y garantía</h3>
-      <p class="pendiente">Pendiente de definir: precio de la cubrición, garantía de preñez y gastos
-        de mantenimiento si la yegua se queda en la yeguada.</p>
-    </div>
-  </div>
-  <p class="lead" style="margin-top:34px">Si tu yegua viene a cubrición, puede quedarse con
-    nosotros el tiempo que necesite: <a href="pupilaje-picadero.html">ver el pupilaje en
-    picadero</a>.</p>
-  <p class="lead" style="margin-top:34px"><em>Esta página no debería publicarse hasta tener las
-    condiciones cerradas.</em></p>
+  <div class="et">Dónde se dan</div>
+  <h2 class="tit">Nuestro picadero</h2>
+  <div id="galeria-clases"></div>
+</div></section>
+
+<section><div class="wrap centrado prosa">
+  <p><em>Antes de publicar esta página hay que confirmar la parte legal: seguro de
+    responsabilidad civil y titulación necesaria para impartir clases.</em></p>
 </div></section>
 
 <section class="contacto"><div class="wrap">
@@ -92,6 +87,10 @@
 <script src="datos/caballos.js?v=abfac514"></script>
 <script src="datos/descendencia.js?v=ee8038dd"></script>
 <script src="js/principal.js?v=1a4b01cf"></script>
-<script>pintarRejilla('rejilla', c => c.cubriciones);</script>
+<script>pintarCarrusel('galeria-clases', [
+  {tipo:'foto', archivo:'img/servicios/picadero-02.jpg', pie:'La pista'},
+  {tipo:'foto', archivo:'img/servicios/picadero-01.jpg', pie:'Las instalaciones'},
+  {tipo:'foto', archivo:'img/servicios/picadero-03.jpg', pie:'La finca'}
+]);</script>
 </body>
 </html>
