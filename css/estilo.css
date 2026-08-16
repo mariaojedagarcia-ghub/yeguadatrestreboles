@@ -144,7 +144,7 @@ h2.tit{font-size:clamp(32px,4.4vw,46px)}
 .nac{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:44px}
 @media(max-width:900px){.nac{grid-template-columns:repeat(2,1fr)}}
 .nac a{text-decoration:none;color:inherit;display:block}
-.nac .marco{aspect-ratio:3/4;border-radius:3px;overflow:hidden;margin-bottom:14px}
+.nac .marco{aspect-ratio:1/1;background:var(--verde);border-radius:3px;overflow:hidden;margin-bottom:14px}
 .marcador{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
   background:linear-gradient(155deg,#3A5040,#2C3D31 55%,#22301F);color:#D6E3D4;text-align:center;padding:16px}
 .marcador .mk{height:56px;width:auto;opacity:.38}
@@ -178,7 +178,7 @@ h2.tit{font-size:clamp(32px,4.4vw,46px)}
 @media(max-width:860px){.venta-lista{grid-template-columns:1fr}}
 .venta-card{background:var(--papel);border:1px solid var(--linea);border-radius:3px;overflow:hidden;text-decoration:none;color:inherit;display:block;transition:.2s}
 .venta-card:hover{box-shadow:0 14px 32px rgba(35,32,25,.10);transform:translateY(-2px)}
-.venta-card .marco{aspect-ratio:3/2;border-radius:0;overflow:hidden}
+.venta-card .marco{aspect-ratio:1/1;border-radius:0;overflow:hidden;background:var(--verde)}
 /* Cualquier foto (vertical, cuadrada o apaisada) se recorta al marco */
 .marco{position:relative;overflow:hidden}
 .marco>img{width:100%;height:100%;object-fit:cover;display:block}
@@ -281,10 +281,7 @@ footer.pie{background:var(--verde-osc);color:#9AA79A;padding:52px 0;font-size:13
 .ficha-hero .foto{position:relative;aspect-ratio:16/8;min-height:240px;border-radius:3px;
   overflow:hidden;border:1px solid var(--linea);background:var(--verde-osc)}
 .ficha-hero .foto img{width:100%;height:100%;object-fit:cover;display:block}
-/* Foto vertical: se ve entera y el hueco se rellena con ella misma desenfocada */
-.ficha-hero .foto img.fondo{position:absolute;inset:0;display:none}
-.ficha-hero .foto.vertical img.fondo{display:block;filter:blur(30px) brightness(.62);transform:scale(1.2)}
-.ficha-hero .foto.vertical img.principal{position:relative;object-fit:contain}
+
 .ficha-hero .marcador span{font-size:34px}
 .filtros{padding:30px 0 4px;display:flex;flex-direction:column;gap:14px}
 .fila-filtro{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
@@ -300,7 +297,7 @@ footer.pie{background:var(--verde-osc);color:#9AA79A;padding:52px 0;font-size:13
   text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:.2s;
   box-shadow:0 1px 2px rgba(35,32,25,.05),0 8px 24px rgba(35,32,25,.05)}
 .tarjeta:hover{transform:translateY(-3px);box-shadow:0 2px 4px rgba(35,32,25,.06),0 16px 34px rgba(35,32,25,.10)}
-.tarjeta .foto{position:relative;aspect-ratio:3/2;overflow:hidden;background:var(--verde)}
+.tarjeta .foto{position:relative;aspect-ratio:1/1;overflow:hidden;background:var(--verde)}
 .tarjeta .foto img{width:100%;height:100%;object-fit:cover;display:block}
 .etiquetas{position:absolute;top:11px;left:11px;display:flex;gap:6px;flex-wrap:wrap;max-width:88%}
 .tag{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;border-radius:2px;
@@ -493,3 +490,12 @@ body.sin-hero{padding-top:96px}
 .carrusel .flecha.apagada{opacity:0;pointer-events:none}
 .carrusel.sin-flechas .flecha{display:none}
 @media(max-width:620px){.carrusel .flecha{display:none}}
+
+/* ---------- Fotos verticales dentro de marcos apaisados o cuadrados ----------
+   Se enseña la foto entera y el hueco se rellena con ella misma desenfocada,
+   en vez de recortar al caballo por la cabeza. */
+.foto>img.fondo,.marco>img.fondo{position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;display:none}
+.foto.vertical>img.fondo,.marco.vertical>img.fondo{display:block;
+  filter:blur(26px) brightness(.62);transform:scale(1.2)}
+.foto.vertical>img.principal,.marco.vertical>img.principal{position:relative;object-fit:contain}

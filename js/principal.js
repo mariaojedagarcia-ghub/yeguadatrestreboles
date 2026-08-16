@@ -81,17 +81,23 @@ function marcador(nombre){
    deja al caballo sin cabeza: en ese caso se enseña entera y se rellenan los
    lados con la misma foto desenfocada. */
 function ajustarVertical(img){
-  const caja = img.closest('.foto');
+  const caja = img.closest('.foto, .marco');
   if (caja && img.naturalHeight > img.naturalWidth * 1.05) caja.classList.add('vertical');
+}
+
+/* La foto de un caballo, en dos capas: la de verdad y una copia de fondo que
+   solo se usa (desenfocada) cuando la foto es vertical y no llena el marco. */
+function imagenCaballo(c, alt){
+  if (!(c.fotos && c.fotos.length)) return marcador(c.nombre);
+  const src = RUTA + 'img/caballos/' + c.slug + '/' + c.fotos[0];
+  return '<img class="fondo" src="' + src + '" alt="" aria-hidden="true">' +
+         '<img class="principal" src="' + src + '" loading="lazy"' +
+         ' onload="ajustarVertical(this)" alt="' + (alt || c.nombre) + '">';
 }
 
 function fotoCaballo(c, clase){
   const ruta = RUTA + 'img/caballos/' + c.slug + '/';
-  const cara = (c.fotos && c.fotos.length)
-    ? '<img class="fondo" src="' + ruta + c.fotos[0] + '" alt="" aria-hidden="true">' +
-      '<img class="principal" src="' + ruta + c.fotos[0] + '" onload="ajustarVertical(this)"' +
-      ' alt="' + c.nombre + ', caballo PRE de Yeguada Tres Tréboles">'
-    : marcador(c.nombre);
+  const cara = imagenCaballo(c, c.nombre + ', caballo PRE de Yeguada Tres Tréboles');
 
   if (!c.genealogia) return '<div class="foto ' + (clase||'') + '">' + cara + '</div>';
 
@@ -115,9 +121,7 @@ function pintarNacimientos(id, n){
     .sort((a,b) => new Date(b.nacimiento) - new Date(a.nacimiento))
     .slice(0, n || 4)
     .map(c => '<a href="' + RUTA + 'caballos/' + c.slug + '.html"><div class="marco">' +
-      ((c.fotos && c.fotos.length)
-        ? '<img src="' + RUTA + 'img/caballos/' + c.slug + '/' + c.fotos[0] + '" alt="' + c.nombre + '">'
-        : marcador(c.nombre)) +
+      imagenCaballo(c) +
       '</div><h3>' + c.nombre + '</h3><div class="fe">' + fechaLarga(c.nacimiento) + '</div></a>')
     .join('');
 }
@@ -128,11 +132,7 @@ function pintarVenta(id){
   caja.innerHTML = CABALLOS.filter(c => c.enVenta && !c.vendido)
     .sort((a,b) => new Date(b.nacimiento) - new Date(a.nacimiento))
     .map(c => '<a class="venta-card" href="' + RUTA + 'caballos/' + c.slug + '.html">' +
-      '<div class="marco">' +
-        ((c.fotos && c.fotos.length)
-          ? '<img src="' + RUTA + 'img/caballos/' + c.slug + '/' + c.fotos[0] + '" alt="' + c.nombre + '">'
-          : marcador(c.nombre)) +
-      '</div><div class="cuerpo"><span class="tag-venta">Disponible</span>' +
+      '<div class="marco">' + imagenCaballo(c) + '</div><div class="cuerpo"><span class="tag-venta">Disponible</span>' +
       '<h3>' + c.nombre + '</h3>' +
       '<div class="meta">' + (c.sexo === 'M' ? 'Macho' : 'Hembra') + ' PRE · ' +
         (c.capa || 'capa pendiente') + ' · ' + anio(c.nacimiento) + '</div>' +
@@ -169,9 +169,7 @@ function tarjetaCaballo(c){
   if (c.palmares && c.palmares.length) tags.push('<span class="tag hito">' + c.palmares[0].titulo + '</span>');
   else if (c.hito) tags.push('<span class="tag hito">' + c.hito + '</span>');
 
-  const foto = (c.fotos && c.fotos.length)
-    ? '<img src="' + RUTA + 'img/caballos/' + c.slug + '/' + c.fotos[0] + '" alt="' + c.nombre + ', caballo PRE">'
-    : marcador(c.nombre);
+  const foto = imagenCaballo(c, c.nombre + ', caballo PRE');
 
   return '<a class="tarjeta" href="' + RUTA + 'caballos/' + c.slug + '.html">' +
     '<div class="foto">' + foto +
