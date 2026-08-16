@@ -312,7 +312,7 @@ FILTROS = '''
         <button class="chip" data-valor="Castaña" aria-pressed="false">Castaña</button>
         <button class="chip" data-valor="Negra" aria-pressed="false">Negra</button>
         <button class="chip" data-valor="Torda" aria-pressed="false">Torda</button>
-        <button class="chip" data-valor="Bayo oro" aria-pressed="false">Bayo oro</button>
+        <button class="chip" data-valor="Bayo" aria-pressed="false">Bayo</button>
       </div>
       <div class="fila-filtro" data-filtro="sexo">
         <span class="et-f">Sexo</span>
@@ -356,7 +356,7 @@ INDICE = cab('Nuestros caballos',
       <button class="chip" data-valor="Castaña" aria-pressed="false">Castaña</button>
       <button class="chip" data-valor="Negra" aria-pressed="false">Negra</button>
       <button class="chip" data-valor="Torda" aria-pressed="false">Torda</button>
-      <button class="chip" data-valor="Bayo oro" aria-pressed="false">Bayo oro</button>
+      <button class="chip" data-valor="Bayo" aria-pressed="false">Bayo</button>
     </div>
     <div class="fila-filtro" data-filtro="sexo">
       <span class="et-f">Sexo</span>

@@ -149,7 +149,7 @@ function pasaFiltro(c){
   return true;
 }
 
-const CLASE_CAPA = {'Castaña':'c-castana','Negra':'c-negra','Torda':'c-torda','Bayo oro':'c-bayo'};
+const CLASE_CAPA = {'Castaña':'c-castana','Negra':'c-negra','Torda':'c-torda','Bayo':'c-bayo'};
 
 function tarjetaCaballo(c){
   const cl = CLASE_CAPA[c.capa] || 'c-none';

@@ -296,7 +296,9 @@ const CABALLOS = [
     "vendido": false,
     "destacado": false,
     "texto": "",
-    "fotos": [],
+    "fotos": [
+      "portada.jpg"
+    ],
     "video": null,
     "credito": null,
     "palmares": [],
@@ -642,7 +644,7 @@ const CABALLOS = [
     "grupo": "venta",
     "sexo": "M",
     "nacimiento": "2023-06-07",
-    "capa": "Bayo oro",
+    "capa": "Bayo",
     "padre": "Norte A",
     "padreSlug": null,
     "madre": "Malaguita III",
