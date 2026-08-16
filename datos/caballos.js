@@ -34,7 +34,8 @@ const CABALLOS = [
     "texto": "",
     "fotos": [
       "portada.jpg",
-      "01.jpg"
+      "01.jpg",
+      "02.jpg"
     ],
     "video": null,
     "credito": "Salvador Giménez Fotografía",
@@ -76,8 +77,8 @@ const CABALLOS = [
     "hijosLG": 0,
     "videos": [
       {
-        "archivo": "videoTatami01.mp4",
-        "poster": "videoTatami01-poster.jpg"
+        "archivo": "videotatami01.mp4",
+        "poster": "videotatami01-poster.jpg"
       }
     ],
     "igg": null,
@@ -103,7 +104,9 @@ const CABALLOS = [
     "vendido": false,
     "destacado": false,
     "texto": "",
-    "fotos": [],
+    "fotos": [
+      "portada.jpg"
+    ],
     "video": null,
     "credito": null,
     "palmares": [],
@@ -139,7 +142,8 @@ const CABALLOS = [
       "portada.jpg",
       "01.jpg",
       "02.jpg",
-      "03.jpg"
+      "03.jpg",
+      "04.jpg"
     ],
     "video": null,
     "credito": "Picazo audiovisual",
@@ -257,7 +261,11 @@ const CABALLOS = [
     "vendido": false,
     "destacado": false,
     "texto": "",
-    "fotos": [],
+    "fotos": [
+      "portada.jpg",
+      "01.jpg",
+      "02.jpg"
+    ],
     "video": null,
     "credito": null,
     "palmares": [],
@@ -364,12 +372,12 @@ const CABALLOS = [
     "hijosLG": 4,
     "videos": [
       {
-        "archivo": "VideoMalusa.mp4",
-        "poster": "VideoMalusa-poster.jpg"
+        "archivo": "videomalusa.mp4",
+        "poster": "videomalusa-poster.jpg"
       },
       {
-        "archivo": "VideoMalusa02.mp4",
-        "poster": "VideoMalusa02-poster.jpg"
+        "archivo": "videomalusa02.mp4",
+        "poster": "videomalusa02-poster.jpg"
       }
     ],
     "igg": "106,86",

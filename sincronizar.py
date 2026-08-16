@@ -25,11 +25,68 @@ DATOS = os.path.join(RAIZ, 'datos', 'caballos.js')
 IMG = ('.jpg', '.jpeg', '.png', '.webp')
 VID = ('.mp4', '.webm')
 
+ACENTOS = str.maketrans('áàäâãéèëêíìïîóòöôõúùüûñçÁÀÄÂÃÉÈËÊÍÌÏÎÓÒÖÔÕÚÙÜÛÑÇ',
+                        'aaaaaeeeeiiiiooooouuuuncAAAAAEEEEIIIIOOOOOUUUUNC')
+
+
+def nombre_limpio(f):
+    """Todo en minúsculas, sin acentos, sin espacios ni caracteres raros.
+
+    macOS no distingue mayúsculas de minúsculas, pero los servidores web sí:
+    una foto guardada como 'Portada.jpg' y enlazada como 'portada.jpg' funciona
+    en el Mac y da error 404 una vez publicada. Por eso se normaliza aquí.
+    """
+    base, ext = os.path.splitext(f)
+    base = base.translate(ACENTOS).lower()
+    base = re.sub(r'[^a-z0-9]+', '-', base).strip('-') or 'foto'
+    return base + ext.lower()
+
+
+def normalizar_nombres(carpeta):
+    """Renombra los archivos de la carpeta al nombre limpio. Devuelve los cambios."""
+    hechos = []
+    for f in sorted(os.listdir(carpeta)):
+        if f.startswith('.'):
+            continue
+        nuevo = nombre_limpio(f)
+        if nuevo == f:
+            continue
+        origen, destino = os.path.join(carpeta, f), os.path.join(carpeta, nuevo)
+        # si ya existe otro archivo con el nombre bueno (y no es este mismo,
+        # que en macOS es el mismo archivo), no se toca nada
+        if os.path.exists(destino) and not os.path.samefile(origen, destino):
+            print(f'  ! {f}: ya existe {nuevo}, lo dejo como está')
+            continue
+        # dos pasos: en macOS un renombrado que solo cambia mayúsculas se ignora
+        puente = os.path.join(carpeta, '__tmp__' + nuevo)
+        os.rename(origen, puente)
+        os.rename(puente, destino)
+        hechos.append(f'{f} → {nuevo}')
+    return hechos
+
 
 def main():
     bruto = open(DATOS, encoding='utf-8').read()
     cabecera = bruto.split('const CABALLOS =')[0]
     caballos = json.loads(bruto[bruto.index('['): bruto.rindex(']') + 1])
+
+    # antes de nada, dejar todos los nombres de archivo en minúsculas
+    renombrados = []
+    for sub in ('caballos', 'servicios', 'portada', 'yeguada', 'descendencia', 'marca'):
+        base = os.path.join(RAIZ, 'img', sub)
+        if not os.path.isdir(base):
+            continue
+        carpetas = [base] + [os.path.join(base, d) for d in os.listdir(base)
+                             if os.path.isdir(os.path.join(base, d))]
+        for carp in carpetas:
+            renombrados += normalizar_nombres(carp)
+    if os.path.isdir(os.path.join(RAIZ, 'video')):
+        renombrados += normalizar_nombres(os.path.join(RAIZ, 'video'))
+    if renombrados:
+        print('Renombrados (los servidores web distinguen mayúsculas):')
+        for r in renombrados:
+            print('  ' + r)
+        print()
 
     cambios = []
     for c in caballos:
