@@ -731,3 +731,53 @@ for s in SEMENTALES:
            scripts=f"<script>pintarHijos('{s['slug']}', 'hijos');</script>")
 
 print(f'Generadas {len(SEMENTALES)} páginas de descendencia.')
+
+
+# ============================== COMPROBACIÓN FINAL ==============================
+# Que ninguna página apunte a una imagen, un vídeo o una hoja de estilos que no
+# existe. Un enlace roto no se nota al mirar el código: se nota cuando alguien
+# abre la web y ve un hueco. Mejor que salte aquí.
+def _comprobar_archivos():
+    import glob
+    faltan = []
+    patrones = (r'(?:src|href)="([^"#?:]+\.(?:jpg|jpeg|png|webp|mp4|webm|css|js))"',
+                r"archivo:'([^']+)'", r"poster:'([^']+)'")
+    for f in (glob.glob(os.path.join(RAIZ, '*.html'))
+              + glob.glob(os.path.join(RAIZ, 'caballos', '*.html'))):
+        base = os.path.dirname(f)
+        txt = open(f, encoding='utf-8').read()
+        for pat in patrones:
+            for m in re.findall(pat, txt):
+                if m.startswith(('http', '//')):
+                    continue
+                ruta = (os.path.join(RAIZ, m) if m.split('/')[0] in
+                        ('img', 'video', 'css', 'js', 'datos')
+                        else os.path.normpath(os.path.join(base, m)))
+                if not os.path.exists(ruta.split('?')[0]):
+                    faltan.append((os.path.basename(f), m))
+
+    # las fotos que salen de datos/caballos.js
+    datos_js = json.loads(_b[_b.index('['): _b.rindex(']') + 1])
+    for c in datos_js:
+        carpeta = os.path.join(RAIZ, 'img', 'caballos', c['slug'])
+        refs = list(c.get('fotos') or [])
+        refs += [v['archivo'] for v in (c.get('videos') or [])]
+        refs += [v['poster'] for v in (c.get('videos') or []) if v.get('poster')]
+        if c.get('arbol'):
+            refs.append(c['arbol'])
+        for r in refs:
+            if not os.path.exists(os.path.join(carpeta, r)):
+                faltan.append((c['nombre'], f"img/caballos/{c['slug']}/{r}"))
+
+    faltan = sorted(set(faltan))
+    if faltan:
+        print(f'\n  ¡OJO! {len(faltan)} archivo(s) enlazados que no existen:')
+        for donde, que in faltan:
+            print(f'    {donde}  ->  {que}')
+        print('  Esas imágenes saldrán rotas en la web.')
+    else:
+        print('Comprobado: no hay enlaces rotos a imágenes ni vídeos.')
+
+
+import re
+_comprobar_archivos()

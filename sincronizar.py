@@ -70,18 +70,17 @@ def main():
     cabecera = bruto.split('const CABALLOS =')[0]
     caballos = json.loads(bruto[bruto.index('['): bruto.rindex(']') + 1])
 
-    # antes de nada, dejar todos los nombres de archivo en minúsculas
+    # Dejar en minúsculas los nombres de archivo, SOLO en las carpetas que este
+    # script explora solo (img/caballos/<slug>/). En las demás —img/portada,
+    # img/yeguada, img/servicios, img/marca, video— las rutas están escritas a
+    # mano en construir.py: renombrar ahí rompería los enlaces sin avisar.
     renombrados = []
-    for sub in ('caballos', 'servicios', 'portada', 'yeguada', 'descendencia', 'marca'):
-        base = os.path.join(RAIZ, 'img', sub)
-        if not os.path.isdir(base):
-            continue
-        carpetas = [base] + [os.path.join(base, d) for d in os.listdir(base)
-                             if os.path.isdir(os.path.join(base, d))]
-        for carp in carpetas:
-            renombrados += normalizar_nombres(carp)
-    if os.path.isdir(os.path.join(RAIZ, 'video')):
-        renombrados += normalizar_nombres(os.path.join(RAIZ, 'video'))
+    base = os.path.join(RAIZ, 'img', 'caballos')
+    if os.path.isdir(base):
+        for d in sorted(os.listdir(base)):
+            carp = os.path.join(base, d)
+            if os.path.isdir(carp):
+                renombrados += normalizar_nombres(carp)
     if renombrados:
         print('Renombrados (los servidores web distinguen mayúsculas):')
         for r in renombrados:
