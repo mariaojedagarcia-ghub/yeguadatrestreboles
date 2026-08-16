@@ -514,13 +514,13 @@ CLASES = cab('Clases de iniciación', 'Aprender a montar desde cero, en la sierr
     <p class="pendiente">Pendiente de indicar: duración y frecuencia de las clases, edad mínima,
       si son individuales o en grupo, qué hay que traer y precios.</p>
   </div>
-  <div class="foto-marco"><img src="img/servicios/clases-01.jpg"
+  <div class="foto-marco"><img src="img/servicios/clases-03.jpg"
     alt="Clase de iniciación a caballo en el picadero de Yeguada Tres Tréboles"></div>
 </div></section>
 
 <section class="fondo-papel"><div class="wrap">
-  <div class="et">Dónde se dan</div>
-  <h2 class="tit">Nuestro picadero</h2>
+  <div class="et">En el picadero</div>
+  <h2 class="tit">Así son las clases</h2>
   <div id="galeria-clases"></div>
 </div></section>
 
@@ -531,10 +531,11 @@ CLASES = cab('Clases de iniciación', 'Aprender a montar desde cero, en la sierr
 """ + CONTACTO_FRANJA
 
 MEDIA_CLASES = """<script>pintarCarrusel('galeria-clases', [
+  {tipo:'foto', archivo:'img/servicios/clases-03.jpg',   pie:'Siempre acompañados'},
   {tipo:'foto', archivo:'img/servicios/clases-01.jpg',   pie:'Primeros pasos, con casco'},
-  {tipo:'foto', archivo:'img/servicios/picadero-02.jpg', pie:'La pista'},
-  {tipo:'foto', archivo:'img/servicios/picadero-01.jpg', pie:'Las instalaciones'},
-  {tipo:'foto', archivo:'img/servicios/picadero-03.jpg', pie:'La finca'}
+  {tipo:'foto', archivo:'img/servicios/clases-02.jpg',   pie:'En la pista'},
+  {tipo:'foto', archivo:'img/servicios/clases-04.jpg',   pie:'Clase al atardecer'},
+  {tipo:'foto', archivo:'img/servicios/picadero-02.jpg', pie:'El picadero'}
 ]);</script>"""
 
 pagina('clases.html', 'Clases de iniciación a caballo en Córdoba | Tres Tréboles',
