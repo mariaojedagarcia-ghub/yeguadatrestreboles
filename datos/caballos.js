@@ -36,7 +36,9 @@ const CABALLOS = [
     "fotos": [
       "portada.jpg",
       "01.jpg",
-      "02.jpg"
+      "02.jpg",
+      "03.jpg",
+      "04.jpg"
     ],
     "video": null,
     "credito": "Salvador Giménez Fotografía",
