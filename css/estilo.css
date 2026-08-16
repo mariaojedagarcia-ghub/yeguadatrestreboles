@@ -278,8 +278,11 @@ footer.pie{background:var(--verde-osc);color:#9AA79A;padding:52px 0;font-size:13
 .premio-linea span{font-size:14px;color:var(--suave);text-align:right}
 .galeria{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
 .galeria img{width:100%;border-radius:3px;display:block}
-.ficha-hero .foto{position:relative;aspect-ratio:16/8;min-height:240px;border-radius:3px;
-  overflow:hidden;border:1px solid var(--linea);background:var(--verde-osc)}
+/* width:100% es imprescindible: sin él, min-height obliga a aspect-ratio a
+   estirar el ANCHO del marco para mantener la proporción, y en el móvil la
+   página entera se sale de la pantalla. */
+.ficha-hero .foto{position:relative;width:100%;aspect-ratio:16/8;min-height:240px;
+  border-radius:3px;overflow:hidden;border:1px solid var(--linea);background:var(--verde-osc)}
 .ficha-hero .foto img{width:100%;height:100%;object-fit:cover;display:block}
 
 .ficha-hero .marcador span{font-size:34px}
