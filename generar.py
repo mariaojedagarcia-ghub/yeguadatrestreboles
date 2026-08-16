@@ -10,7 +10,7 @@ una sola vez y este script escribe las páginas completas.
 
 Genera HTML plano: no hace falta ni servidor ni dependencias para verlo.
 """
-import os, json, re
+import os, json, re, hashlib
 
 _AQUI = os.path.dirname(os.path.abspath(__file__))
 # El sitio puede estar en esta misma carpeta o dentro de una subcarpeta 'sitio'
@@ -105,6 +105,27 @@ def pie(ruta):
 </div></footer>'''
 
 
+_VERSIONES = {}
+
+
+def v(relativo):
+    """Devuelve '?v=abc12345' a partir del contenido del archivo.
+
+    El navegador guarda en caché el CSS, el JS y los datos. Si se publica una
+    versión nueva con el mismo nombre, sigue enseñando la vieja: por eso una
+    foto recién añadida no aparece hasta vaciar la caché. Añadiendo al enlace
+    una marca que cambia cuando cambia el archivo, el navegador se ve obligado
+    a pedirlo otra vez. Los archivos que no cambian se siguen cacheando.
+    """
+    if relativo not in _VERSIONES:
+        try:
+            with open(os.path.join(RAIZ, relativo), 'rb') as f:
+                _VERSIONES[relativo] = '?v=' + hashlib.md5(f.read()).hexdigest()[:8]
+        except OSError:
+            _VERSIONES[relativo] = ''
+    return _VERSIONES[relativo]
+
+
 def pagina(archivo, titulo, descripcion, cuerpo, ruta='', clase_body='', scripts=''):
     html = f'''<!DOCTYPE html>
 <html lang="es">
@@ -118,7 +139,7 @@ def pagina(archivo, titulo, descripcion, cuerpo, ruta='', clase_body='', scripts
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{ruta}css/estilo.css">
+<link rel="stylesheet" href="{ruta}css/estilo.css{v('css/estilo.css')}">
 </head>
 <body{(' class="' + clase_body + '"') if clase_body else ''}>
 
@@ -129,9 +150,9 @@ def pagina(archivo, titulo, descripcion, cuerpo, ruta='', clase_body='', scripts
 {pie(ruta)}
 
 <script>const RUTA = '{ruta}';</script>
-<script src="{ruta}datos/caballos.js"></script>
-<script src="{ruta}datos/descendencia.js"></script>
-<script src="{ruta}js/principal.js"></script>
+<script src="{ruta}datos/caballos.js{v('datos/caballos.js')}"></script>
+<script src="{ruta}datos/descendencia.js{v('datos/descendencia.js')}"></script>
+<script src="{ruta}js/principal.js{v('js/principal.js')}"></script>
 {scripts}
 </body>
 </html>

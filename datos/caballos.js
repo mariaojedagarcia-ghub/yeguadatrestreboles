@@ -23,6 +23,7 @@ const CABALLOS = [
     "criador": null,
     "lugarNacimiento": null,
     "descendencia": [
+      "soberano-tres-treboles",
       "nervion-tres-treboles",
       "nervion-ii-tres-t",
       "soberano-ii-tres-t"
@@ -352,6 +353,7 @@ const CABALLOS = [
     "criador": null,
     "lugarNacimiento": null,
     "descendencia": [
+      "soberano-tres-treboles",
       "soberano-ii-tres-t"
     ],
     "cubriciones": false,
@@ -693,5 +695,39 @@ const CABALLOS = [
     "igg": "95,73",
     "iggFiab": "baja",
     "creditoPortada": null
+  },
+  {
+    "slug": "soberano-tres-treboles",
+    "nombre": "Soberano Tres Tréboles",
+    "grupo": "nacido-aqui",
+    "sexo": "M",
+    "nacimiento": "2024-11-19",
+    "capa": "Castaña",
+    "padre": "Provinciano SM III",
+    "padreSlug": "provinciano-sm-iii",
+    "madre": "NR Malusa",
+    "madreSlug": "nr-malusa",
+    "criador": null,
+    "lugarNacimiento": null,
+    "descendencia": [],
+    "cubriciones": false,
+    "enVenta": false,
+    "vendido": true,
+    "destacado": false,
+    "hito": null,
+    "texto": "",
+    "fotos": [
+      "portada.jpg"
+    ],
+    "video": null,
+    "credito": null,
+    "palmares": [],
+    "arbol": "arbol.jpg",
+    "hijosLG": 0,
+    "videos": [],
+    "igg": null,
+    "iggFiab": null,
+    "creditoPortada": null,
+    "nota": "Nacido en la yeguada. Hoy ya no está aquí; conserva el nombre con el que se inscribió."
   }
 ];

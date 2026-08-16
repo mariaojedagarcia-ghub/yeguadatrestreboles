@@ -25,19 +25,6 @@
 
 const DESCENDENCIA_EXTERNA = [
 
-  {
-    "padre": "provinciano-sm-iii",
-    "nombre": "Soberano Tres Tréboles",
-    "nacimiento": "2024-11-19",
-    "sexo": "M",
-    "capa": "Castaña",
-    "madre": "NR Malusa",
-    "ganaderia": "La Alborada",
-    "nacidoAqui": true,
-    "foto": "soberano-tres-treboles.jpg",
-    "nota": "Nacido en la yeguada. Hoy en otra ganadería."
-  },
-
   // ---- EJEMPLO. Bórralo cuando metas los de verdad ----
   // {
   //   "padre": "provinciano-sm-iii",

@@ -42,8 +42,7 @@ const GRUPOS = {
 function etiquetaGrupo(c){
   if (c.grupo === 'semental') return 'Semental PRE';
   if (c.grupo === 'yegua')    return 'Yegua de cría PRE';
-  const anios = (new Date() - new Date(c.nacimiento)) / 31557600000;
-  if (anios < 4) return (c.sexo === 'M' ? 'Potro PRE' : 'Potra PRE');
+  if (mesesDesde(c.nacimiento) < 48) return (c.sexo === 'M' ? 'Potro PRE' : 'Potra PRE');
   return (c.sexo === 'M' ? 'Caballo PRE' : 'Yegua PRE');
 }
 
@@ -52,15 +51,20 @@ const anio    = iso => new Date(iso).getFullYear();
 const fechaLarga = iso => new Date(iso)
   .toLocaleDateString('es-ES',{day:'numeric',month:'long',year:'numeric'});
 
-function edad(iso){
+/* Edad en meses hasta que cumple el año; a partir de ahí, en años. */
+function mesesDesde(iso){
   const n = new Date(iso), h = new Date();
-  let a = h.getFullYear() - n.getFullYear();
-  const m = h.getMonth() - n.getMonth();
-  if (m < 0 || (m === 0 && h.getDate() < n.getDate())) a--;
-  if (a < 1){
-    const meses = Math.max(0, a*12 + (h.getMonth()-n.getMonth()) + (h.getDate() >= n.getDate() ? 0 : -1));
-    return meses <= 1 ? 'recién nacido' : meses + ' meses';
-  }
+  let m = (h.getFullYear() - n.getFullYear()) * 12 + (h.getMonth() - n.getMonth());
+  if (h.getDate() < n.getDate()) m--;
+  return Math.max(0, m);
+}
+
+function edad(iso){
+  const m = mesesDesde(iso);
+  if (m === 0)  return 'recién nacido';
+  if (m === 1)  return '1 mes';
+  if (m < 12)   return m + ' meses';
+  const a = Math.floor(m / 12);
   return a + (a === 1 ? ' año' : ' años');
 }
 
