@@ -587,6 +587,9 @@ MEDIA_CLASES = """<script>pintarCarrusel('galeria-clases', [
   {tipo:'foto', archivo:'img/servicios/clases-03.jpg',   pie:'Siempre acompañados'},
   {tipo:'foto', archivo:'img/servicios/clases-01.jpg',   pie:'Primeros pasos, con casco'},
   {tipo:'foto', archivo:'img/servicios/clases-02.jpg',   pie:'En la pista'},
+  {tipo:'video', archivo:'img/servicios/clases-v1.mp4', poster:'img/servicios/clases-v1-poster.jpg',
+   pie:'Al paso por el picadero'},
+  {tipo:'foto', archivo:'img/servicios/clases-05.jpg',   pie:'Aprendiendo a llevarlo'},
   {tipo:'foto', archivo:'img/servicios/clases-04.jpg',   pie:'Clase al atardecer'}
 ]);</script>"""
 
@@ -769,6 +772,24 @@ pagina('pupilaje-semilibertad.html', 'Pupilaje en semilibertad en Villaharta | T
 
 
 # ============================== CONTACTO ==============================
+# Dirección pública del sitio. Hace falta para decirle al servicio de correo
+# a qué página tiene que devolver al visitante después de enviar. El día que
+# se cambie al dominio propio, se cambia aquí y ya está.
+SITIO_URL = 'https://mariaojedagarcia-ghub.github.io/yeguadatrestreboles/'
+
+# El formulario se envía a través de FormSubmit (formsubmit.co): recoge el
+# formulario y lo reenvía por correo. No hace falta servidor propio, que es
+# justo lo que no tenemos con GitHub Pages.
+#
+# La primera vez que alguien envíe el formulario, FormSubmit manda un correo
+# de confirmación a esta dirección: hay que pulsar el enlace UNA vez y a
+# partir de ahí llegan todos los mensajes.
+#
+# Después de activarlo, FormSubmit da una dirección con un código en vez del
+# correo (formsubmit.co/xxxxxxxx). Conviene cambiarla aquí por esa: así el
+# correo deja de estar a la vista en el código de la página y no lo recogen
+# los robots que rastrean direcciones para mandar spam.
+FORM_DESTINO = 'https://formsubmit.co/mariaojedagarcia@gmail.com'
 CONTACTO = cab('Contacto', 'Estaremos encantados de enseñarte la yeguada.', 'Yeguada Tres Tréboles') + '''
 <section><div class="wrap dos">
   <div class="prosa">
@@ -787,21 +808,34 @@ CONTACTO = cab('Contacto', 'Estaremos encantados de enseñarte la yeguada.', 'Ye
     </ul>
   </div>
   <div>
-    <form class="formulario" onsubmit="return false">
-      <label>Nombre<input type="text" name="nombre" required></label>
+    <form class="formulario" action="''' + FORM_DESTINO + '''" method="POST">
+      <!-- Campos de FormSubmit: asunto del correo, plantilla en tabla, adónde
+           vuelve el visitante al enviar y un cebo antispam (los robots lo
+           rellenan y las personas no lo ven, así que ese envío se descarta). -->
+      <input type="hidden" name="_subject" value="Mensaje desde la web de Tres Tréboles">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="''' + SITIO_URL + '''gracias.html">
+      <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true"
+             style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+      <label>Nombre<input type="text" name="Nombre" required></label>
       <label>Email<input type="email" name="email" required></label>
-      <label>Teléfono<input type="tel" name="telefono"></label>
+      <label>Teléfono<input type="tel" name="Teléfono"></label>
       <label>Motivo
-        <select name="motivo">
+        <select name="Motivo">
           <option>Comprar un caballo</option>
           <option>Cubrición</option>
+          <option>Pupilaje en picadero</option>
+          <option>Pupilaje en semilibertad</option>
           <option>Rutas a caballo</option>
+          <option>Clases de iniciación</option>
+          <option>Visitar la yeguada</option>
           <option>Información general</option>
         </select>
       </label>
-      <label>Mensaje<textarea name="mensaje" rows="5"></textarea></label>
+      <label>Mensaje<textarea name="Mensaje" rows="5"></textarea></label>
       <button class="cta" type="submit">Enviar</button>
-      <p class="falta-form">El formulario todavía no envía: falta conectarlo a un servicio de correo.</p>
+      <p class="falta-form">Te contestamos al correo o al teléfono que nos dejes.</p>
     </form>
   </div>
 </div></section>
@@ -820,6 +854,22 @@ CONTACTO = cab('Contacto', 'Estaremos encantados de enseñarte la yeguada.', 'Ye
 pagina('contacto.html', 'Contacto | Yeguada Tres Tréboles',
        'Contacta con Yeguada Tres Tréboles, ganadería de caballos PRE en la Urbanización 7 Fincas, Córdoba.',
        CONTACTO)
+
+# Página a la que llega el visitante después de enviar el formulario.
+GRACIAS = cab('Mensaje enviado', 'Gracias por escribirnos.', 'Yeguada Tres Tréboles') + '''
+<section><div class="wrap prosa" style="max-width:62ch">
+  <p class="lead">Hemos recibido tu mensaje. Te contestamos en cuanto podamos, al correo
+    o al teléfono que nos has dejado.</p>
+  <p>Si es algo que corre prisa, puedes llamarnos al
+    <a href="tel:+34666438378">666 43 83 78</a> o escribirnos por
+    <a href="https://wa.me/34666438378" target="_blank" rel="noopener">WhatsApp</a>.</p>
+  <p style="margin-top:30px"><a class="cta" href="index.html">Volver al inicio</a></p>
+</div></section>
+'''
+
+pagina('gracias.html', 'Mensaje enviado | Yeguada Tres Tréboles',
+       'Hemos recibido tu mensaje. Gracias por escribir a Yeguada Tres Tréboles.',
+       GRACIAS)
 
 
 # ============================== FICHAS ==============================

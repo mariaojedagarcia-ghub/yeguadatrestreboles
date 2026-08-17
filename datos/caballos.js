@@ -509,7 +509,9 @@ const CABALLOS = [
     "vendido": false,
     "destacado": false,
     "texto": "",
-    "fotos": [],
+    "fotos": [
+      "portada.jpg"
+    ],
     "video": null,
     "credito": null,
     "palmares": [],
@@ -754,7 +756,9 @@ const CABALLOS = [
     "vendido": false,
     "destacado": false,
     "texto": "",
-    "fotos": [],
+    "fotos": [
+      "portada.jpg"
+    ],
     "video": null,
     "credito": null,
     "palmares": [],
@@ -815,7 +819,7 @@ const CABALLOS = [
     "descendencia": [],
     "cubriciones": false,
     "enVenta": false,
-    "vendido": false,
+    "vendido": true,
     "destacado": false,
     "texto": "",
     "fotos": [],
@@ -828,7 +832,9 @@ const CABALLOS = [
     "igg": null,
     "iggFiab": null,
     "creditoPortada": null,
-    "precioCubricion": null
+    "precioCubricion": null,
+    "hito": null,
+    "nota": "Nacido en la yeguada. Hoy ya no está aquí; conserva el nombre con el que se inscribió."
   },
   {
     "slug": "soberano-ii-tres-t",
@@ -846,7 +852,7 @@ const CABALLOS = [
     "descendencia": [],
     "cubriciones": false,
     "enVenta": false,
-    "vendido": false,
+    "vendido": true,
     "destacado": false,
     "texto": "",
     "fotos": [],
@@ -859,7 +865,9 @@ const CABALLOS = [
     "igg": null,
     "iggFiab": null,
     "creditoPortada": null,
-    "precioCubricion": null
+    "precioCubricion": null,
+    "hito": null,
+    "nota": "Nacido en la yeguada. Hoy ya no está aquí; conserva el nombre con el que se inscribió."
   },
   {
     "slug": "canastera-tres-t",
@@ -914,7 +922,10 @@ const CABALLOS = [
     "destacado": true,
     "hito": "La más joven de la yeguada",
     "texto": "",
-    "fotos": [],
+    "fotos": [
+      "portada.jpg",
+      "01.jpg"
+    ],
     "video": null,
     "credito": null,
     "palmares": [],
@@ -1053,7 +1064,9 @@ const CABALLOS = [
     "vendido": false,
     "destacado": false,
     "texto": "",
-    "fotos": [],
+    "fotos": [
+      "portada.jpg"
+    ],
     "video": null,
     "credito": null,
     "palmares": [],

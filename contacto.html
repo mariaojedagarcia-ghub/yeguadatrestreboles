@@ -54,21 +54,34 @@
     </ul>
   </div>
   <div>
-    <form class="formulario" onsubmit="return false">
-      <label>Nombre<input type="text" name="nombre" required></label>
+    <form class="formulario" action="https://formsubmit.co/mariaojedagarcia@gmail.com" method="POST">
+      <!-- Campos de FormSubmit: asunto del correo, plantilla en tabla, adónde
+           vuelve el visitante al enviar y un cebo antispam (los robots lo
+           rellenan y las personas no lo ven, así que ese envío se descarta). -->
+      <input type="hidden" name="_subject" value="Mensaje desde la web de Tres Tréboles">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://mariaojedagarcia-ghub.github.io/yeguadatrestreboles/gracias.html">
+      <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true"
+             style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+      <label>Nombre<input type="text" name="Nombre" required></label>
       <label>Email<input type="email" name="email" required></label>
-      <label>Teléfono<input type="tel" name="telefono"></label>
+      <label>Teléfono<input type="tel" name="Teléfono"></label>
       <label>Motivo
-        <select name="motivo">
+        <select name="Motivo">
           <option>Comprar un caballo</option>
           <option>Cubrición</option>
+          <option>Pupilaje en picadero</option>
+          <option>Pupilaje en semilibertad</option>
           <option>Rutas a caballo</option>
+          <option>Clases de iniciación</option>
+          <option>Visitar la yeguada</option>
           <option>Información general</option>
         </select>
       </label>
-      <label>Mensaje<textarea name="mensaje" rows="5"></textarea></label>
+      <label>Mensaje<textarea name="Mensaje" rows="5"></textarea></label>
       <button class="cta" type="submit">Enviar</button>
-      <p class="falta-form">El formulario todavía no envía: falta conectarlo a un servicio de correo.</p>
+      <p class="falta-form">Te contestamos al correo o al teléfono que nos dejes.</p>
     </form>
   </div>
 </div></section>
@@ -94,9 +107,9 @@
 </div></footer>
 
 <script>const RUTA = '';</script>
-<script src="datos/caballos.js?v=b6c53a15"></script>
+<script src="datos/caballos.js?v=27f53259"></script>
 <script src="datos/descendencia.js?v=ee8038dd"></script>
-<script src="js/principal.js?v=a4268da2"></script>
+<script src="js/principal.js?v=0e0b8422"></script>
 
 </body>
 </html>

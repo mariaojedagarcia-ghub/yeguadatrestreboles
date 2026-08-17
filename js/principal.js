@@ -77,12 +77,25 @@ function marcador(nombre){
 
 /* La foto del caballo. Si tiene carta genealógica, la foto se voltea al pasar
    por encima (o al tocarla en móvil) y enseña el documento por detrás. */
-/* El marco de la foto principal es apaisado. Si la foto es vertical, recortarla
-   deja al caballo sin cabeza: en ese caso se enseña entera y se rellenan los
-   lados con la misma foto desenfocada. */
+/* Los marcos son apaisados (la franja de la ficha) o cuadrados (las tarjetas).
+   Cuando la foto es más estrecha que su hueco, recortarla deja al caballo sin
+   cabeza o sin patas: en ese caso se enseña entera y se rellena el resto con
+   la misma foto desenfocada.
+
+   No basta con mirar si la foto es vertical. La portada de Nerva, por ejemplo,
+   es apaisada (1358x988) pero mucho menos que la franja de la ficha (16:8), y
+   se le comía casi un tercio. Por eso se compara la proporción de la foto con
+   la del hueco donde va, no con un valor fijo. */
 function ajustarVertical(img){
   const caja = img.closest('.foto, .marco');
-  if (caja && img.naturalHeight > img.naturalWidth * 1.05) caja.classList.add('vertical');
+  if (!caja) return;
+  const r = caja.getBoundingClientRect();
+  if (!r.width || !r.height || !img.naturalWidth) return;
+  /* Se admite recortar hasta un 20%: por debajo de eso llenar el hueco queda
+     mejor. A partir de ahí el recorte se lleva por delante media foto y se
+     enseña entera. */
+  if (img.naturalWidth / img.naturalHeight < (r.width / r.height) * 0.8)
+    caja.classList.add('vertical');
 }
 
 /* La foto de un caballo, en dos capas: la de verdad y una copia de fondo que
@@ -675,11 +688,16 @@ document.querySelectorAll('[data-cuenta]').forEach(el => {
     v.muted = true;                 // hace falta para poder arrancar solo
     v.setAttribute('muted', '');
     v.playsInline = true;
-    const mostrar = () => v.classList.add('visible');
+    const mostrar  = () => v.classList.add('visible');
     const esconder = () => v.classList.remove('visible');
+    /* Ojo: con el atributo autoplay el vídeo puede haber arrancado ya antes
+       de que este script llegue a ejecutarse, y entonces el aviso 'playing'
+       ya ha pasado. Por eso además de escucharlo se mira si está en marcha. */
+    const revisar = () => { if (!v.paused && v.readyState >= 2) mostrar(); };
     v.addEventListener('playing', mostrar);
-    v.addEventListener('pause', esconder);
+    v.addEventListener('timeupdate', revisar, {passive:true});
+    revisar();
     const p = v.play();
-    if (p && p.catch) p.catch(esconder);
+    if (p && p.then) p.then(mostrar, esconder);
   });
 })();
