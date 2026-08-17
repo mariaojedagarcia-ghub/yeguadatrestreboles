@@ -590,6 +590,8 @@ MEDIA_CLASES = """<script>pintarCarrusel('galeria-clases', [
   {tipo:'video', archivo:'img/servicios/clases-v1.mp4', poster:'img/servicios/clases-v1-poster.jpg',
    pie:'Al paso por el picadero'},
   {tipo:'foto', archivo:'img/servicios/clases-05.jpg',   pie:'Aprendiendo a llevarlo'},
+  {tipo:'video', archivo:'img/servicios/clases-v2.mp4', poster:'img/servicios/clases-v2-poster.jpg',
+   pie:'Ganando confianza'},
   {tipo:'foto', archivo:'img/servicios/clases-04.jpg',   pie:'Clase al atardecer'}
 ]);</script>"""
 
