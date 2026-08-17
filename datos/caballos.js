@@ -757,7 +757,8 @@ const CABALLOS = [
     "destacado": false,
     "texto": "",
     "fotos": [
-      "portada.jpg"
+      "portada.jpg",
+      "01.jpg"
     ],
     "video": null,
     "credito": null,
