@@ -11,7 +11,8 @@ datos = json.loads(_b[_b.index('['): _b.rindex(']') + 1])
 PORTADA = '''
 <div class="hero">
   <div class="hero-img" style="background-image:url('img/portada/hero.jpg')"></div>
-  <video class="hero-video" autoplay muted loop playsinline preload="auto"
+  <video class="hero-video" autoplay muted loop playsinline webkit-playsinline
+         disablepictureinpicture preload="auto"
          poster="video/sierra-poster.jpg" aria-hidden="true">
     <source src="video/sierra.mp4" type="video/mp4">
     <source src="video/sierra.webm" type="video/webm">
@@ -289,7 +290,10 @@ pagina('la-yeguada.html',
 def cab(titulo, bajada, migas, foto="img/portada/franja.jpg", video=None):
     """Cabecera de página. Si se le pasa un vídeo, se reproduce de fondo en
     bucle y la foto queda como respaldo mientras carga o si no se puede ver."""
+    # webkit-playsinline y disablepictureinpicture son para el iPhone: sin
+    # ellos Safari intenta abrir el vídeo a pantalla completa o encima de todo.
     capa_video = (f'<video class="video-fondo" autoplay muted loop playsinline '
+                  f'webkit-playsinline disablepictureinpicture '
                   f'preload="auto" poster="{foto}" aria-hidden="true">'
                   f'<source src="{video}" type="video/mp4"></video>') if video else ''
     return f'''

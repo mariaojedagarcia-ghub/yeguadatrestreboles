@@ -597,6 +597,11 @@ body.sin-hero{padding-top:96px}
 .aviso-cubricion .precio-suelto{margin-top:16px}
 .aviso-cubricion .cta{margin-top:22px}
 
-/* Vídeo de fondo en la cabecera de una página */
+/* Vídeo de fondo en la cabecera de una página.
+   Empieza invisible y solo se enseña cuando está reproduciéndose de verdad.
+   Si el teléfono no lo deja arrancar solo (modo de ahorro de energía, datos
+   limitados…), se queda debajo la foto y no aparece ningún botón de play. */
 .cab-pagina .video-fondo{position:absolute;inset:0;width:100%;height:100%;
-  object-fit:cover;display:block}
+  object-fit:cover;display:block;opacity:0;transition:opacity 1s ease}
+.cab-pagina .video-fondo.visible{opacity:1}
+@media (prefers-reduced-motion: reduce){.cab-pagina .video-fondo{display:none}}

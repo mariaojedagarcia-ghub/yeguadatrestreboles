@@ -511,7 +511,10 @@ function construirGaleria(c){
   const ruta = RUTA + 'img/caballos/' + c.slug + '/';
   MEDIA = [];
 
-  (c.fotos || []).slice(1).forEach(f => MEDIA.push({tipo:'foto', src: ruta + f, nombre: c.nombre}));
+  /* Van TODAS las fotos de la carpeta, la portada incluida. Arriba se ve
+     recortada en franja: aquí se puede abrir entera. Así lo que hay en
+     img/caballos/<slug>/ es exactamente lo que se ve en la galería. */
+  (c.fotos || []).forEach(f => MEDIA.push({tipo:'foto', src: ruta + f, nombre: c.nombre}));
   (c.videos || []).forEach(v => MEDIA.push({
     tipo:'video',
     src: ruta + (typeof v === 'string' ? v : v.archivo),
@@ -520,7 +523,7 @@ function construirGaleria(c){
   }));
 
   if (!MEDIA.length){
-    return '<div class="vacio">Todavía no hay más fotos ni vídeos de ' + c.nombre +
+    return '<div class="vacio">Todavía no hay fotos ni vídeos de ' + c.nombre +
       '. En cuanto se dejen en <code>img/caballos/' + c.slug + '/</code> aparecerán aquí solos.</div>';
   }
 
@@ -659,15 +662,24 @@ document.querySelectorAll('[data-cuenta]').forEach(el => {
 });
 
 
-/* El vídeo del hero aparece cuando ya puede reproducirse, para que no se
-   vea un salto entre la foto y la primera imagen del vídeo. */
-(function heroVideo(){
-  const v = document.querySelector('.hero-video');
-  if (!v) return;
-  const mostrar = () => v.classList.add('visible');
-  if (v.readyState >= 3) mostrar();
-  v.addEventListener('canplay', mostrar, {once:true});
-  // si el navegador bloquea la reproducción automática, se queda la foto
-  const p = v.play();
-  if (p && p.catch) p.catch(() => v.classList.remove('visible'));
+/* Los vídeos de fondo (la sierra en la portada, las yeguas en su cabecera)
+   solo se enseñan cuando están reproduciéndose de verdad.
+
+   En el móvil la reproducción automática se bloquea a menudo: con el modo de
+   ahorro de energía del iPhone, con el ahorro de datos o si el sistema pide
+   menos animación. Cuando eso pasa, Safari dibuja un botón de play enorme en
+   medio del vídeo. Dejándolo invisible hasta que suena el evento 'playing',
+   lo que se ve es la foto de debajo y no ese botón. */
+(function videosDeFondo(){
+  document.querySelectorAll('.hero-video, .video-fondo').forEach(v => {
+    v.muted = true;                 // hace falta para poder arrancar solo
+    v.setAttribute('muted', '');
+    v.playsInline = true;
+    const mostrar = () => v.classList.add('visible');
+    const esconder = () => v.classList.remove('visible');
+    v.addEventListener('playing', mostrar);
+    v.addEventListener('pause', esconder);
+    const p = v.play();
+    if (p && p.catch) p.catch(esconder);
+  });
 })();
