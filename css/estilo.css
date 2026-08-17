@@ -334,6 +334,10 @@ footer.pie{background:var(--verde-osc);color:#9AA79A;padding:52px 0;font-size:13
 .tarjeta .cuerpo{padding:16px 18px 18px;display:flex;flex-direction:column;gap:5px;flex:1}
 .tarjeta .cuerpo h3{font-size:23px}
 .capa-linea{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--suave);margin-top:auto;padding-top:11px}
+/* El precio en la tarjeta, debajo de la capa: se busca de un vistazo, así que
+   va en la tipografía de los títulos y algo más grande que el resto. */
+.tarjeta .precio-tarjeta{font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:22px;font-weight:600;color:var(--verde);line-height:1.1;padding-top:7px}
 .punto{width:11px;height:11px;border-radius:50%;border:1px solid rgba(0,0,0,.18);flex:0 0 auto}
 .c-castana{background:#8A5A32}.c-negra{background:#2A2724}.c-torda{background:#D8D4CC}.c-bayo{background:#C8A263}
 .c-none{background:repeating-linear-gradient(45deg,#DDD6C8,#DDD6C8 3px,#F3EEE3 3px,#F3EEE3 6px)}

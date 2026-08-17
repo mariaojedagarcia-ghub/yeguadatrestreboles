@@ -454,8 +454,8 @@ pagina_grupo('nacidos-en-la-yeguada.html', 'Potros nacidos en la yeguada | Tres 
 VENTA = cab('Ejemplares en venta', 'Caballos de Pura Raza Española disponibles.', 'Yeguada Tres Tréboles') + '''
 <section><div class="wrap">
   <p class="lead" style="max-width:66ch;margin-top:0">Todos nuestros ejemplares están inscritos en el
-    Libro Genealógico del PRE y se entregan con su documentación en regla. El precio no se publica:
-    escríbenos y hablamos.</p>
+    Libro Genealógico del PRE y se entregan con su documentación en regla. Si te interesa alguno,
+    escríbenos y lo vemos sin compromiso.</p>
   <div class="rejilla" id="rejilla"></div>
 </div></section>
 ''' + CONTACTO_FRANJA

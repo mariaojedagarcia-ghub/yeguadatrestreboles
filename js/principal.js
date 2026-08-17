@@ -152,7 +152,8 @@ function pintarVenta(id){
       '<h3>' + c.nombre + '</h3>' +
       '<div class="meta">' + (c.sexo === 'M' ? 'Macho' : 'Hembra') + ' PRE · ' +
         (c.capa || 'capa pendiente') + ' · ' + anio(c.nacimiento) + '</div>' +
-      '<div class="precio">Precio a consultar</div></div></a>')
+      '<div class="precio">' + (c.precio ? euros(c.precio) : 'Precio a consultar') +
+      '</div></div></a>')
     .join('');
 }
 
@@ -203,7 +204,18 @@ function tarjetaCaballo(c){
     '<div class="cuerpo"><h3>' + c.nombre + '</h3>' +
     '<div class="meta">' + GRUPOS[c.grupo] + ' · ' + anio(c.nacimiento) + ' · ' + edad(c.nacimiento) + '</div>' +
     '<div class="capa-linea"><span class="punto ' + cl + '"></span>' +
-      (c.capa ? c.capa : 'Capa pendiente') + '</div></div></a>';
+      (c.capa ? c.capa : 'Capa pendiente') + '</div>' +
+    /* El precio, debajo de la capa, solo en los que están a la venta. */
+    (c.enVenta && !c.vendido && c.precio
+      ? '<div class="precio-tarjeta">' + euros(c.precio) + '</div>' : '') +
+    '</div></a>';
+}
+
+/* 1500 → "1.500 €", con el punto de los miles como se escribe en español.
+   Se escribe a mano en vez de con toLocaleString porque no todos los
+   navegadores traen los datos del idioma y algunos devuelven "1500". */
+function euros(n){
+  return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.') + ' €';
 }
 
 /* Los botones de "Ver los hijos de..." se pintan desde los mismos datos y en
@@ -395,6 +407,8 @@ function pintarFicha(slug){
         (c.cubriciones ? '<li><span>Cubriciones</span><span><a href="' + RUTA +
             'cubriciones.html">Disponible</a></span></li>' : '') +
         (c.enVenta && !c.vendido ? '<li><span>Disponibilidad</span><span>En venta</span></li>' : '') +
+        (c.enVenta && !c.vendido && c.precio
+          ? '<li><span>Precio</span><span>' + euros(c.precio) + '</span></li>' : '') +
         (c.vendido ? '<li><span>Situación</span><span>Ya no está en la yeguada</span></li>' : '') +
       '</ul>' +
       (c.texto ? '' : '<a class="cta" href="' + RUTA + 'contacto.html">Consultar sobre ' +

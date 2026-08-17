@@ -901,7 +901,8 @@ const CABALLOS = [
     "igg": null,
     "iggFiab": null,
     "creditoPortada": null,
-    "precioCubricion": null
+    "precioCubricion": null,
+    "precio": 1500
   },
   {
     "slug": "saeta-tres-t",
@@ -970,7 +971,8 @@ const CABALLOS = [
     "igg": null,
     "iggFiab": null,
     "creditoPortada": null,
-    "precioCubricion": null
+    "precioCubricion": null,
+    "precio": 5000
   },
   {
     "slug": "castorena-ix",
@@ -1004,7 +1006,8 @@ const CABALLOS = [
     "igg": "95,73",
     "iggFiab": "baja",
     "creditoPortada": null,
-    "precioCubricion": null
+    "precioCubricion": null,
+    "precio": 1300
   },
   {
     "slug": "soberano-tres-treboles",
