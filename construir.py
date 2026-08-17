@@ -87,7 +87,6 @@ PORTADA = '''
   <h2 class="tit">Pura Raza Española</h2>
   <p>Yeguada Tres Tréboles nace con la ilusión de criar y disfrutar del Pura Raza Española,
     cuidando cada ejemplar y construyendo nuestro proyecto paso a paso.</p>
-  <p class="nota">Todos nuestros ejemplares están inscritos en el Libro Genealógico del caballo de Pura Raza Española.</p>
 </div></section>
 
 <section class="fondo-papel"><div class="wrap">
@@ -251,8 +250,7 @@ YEGUADA = '''
   <h2 class="tit">Pura Raza Española</h2>
   <p>Yeguada Tres Tréboles nace con la ilusión de criar y disfrutar del Pura Raza Española,
     cuidando cada ejemplar y construyendo nuestro proyecto paso a paso.</p>
-  <p class="nota">Todos nuestros ejemplares están inscritos en el Libro Genealógico del caballo
-    de Pura Raza Española. En la ficha de cada caballo puedes ver su carta genealógica.</p>
+  <p class="nota">En la ficha de cada caballo puedes ver su carta genealógica.</p>
 </div></section>
 
 <section><div class="wrap dos">
@@ -288,10 +286,16 @@ pagina('la-yeguada.html',
 
 
 # ============================== BLOQUES REUTILIZABLES ==============================
-def cab(titulo, bajada, migas, foto="img/portada/franja.jpg"):
+def cab(titulo, bajada, migas, foto="img/portada/franja.jpg", video=None):
+    """Cabecera de página. Si se le pasa un vídeo, se reproduce de fondo en
+    bucle y la foto queda como respaldo mientras carga o si no se puede ver."""
+    capa_video = (f'<video class="video-fondo" autoplay muted loop playsinline '
+                  f'preload="auto" poster="{foto}" aria-hidden="true">'
+                  f'<source src="{video}" type="video/mp4"></video>') if video else ''
     return f'''
 <div class="cab-pagina">
   <div class="foto-fondo" style="background-image:url('{foto}')"></div>
+  {capa_video}
   <div class="velo"></div>
   <div class="wrap"><div class="txt">
     <div class="migas">{migas}</div>
@@ -358,8 +362,9 @@ AVISO_CUBRICIONES = '''
 </div></section>'''
 
 
-def pagina_grupo(archivo, titulo, h1, bajada, intro, base_js, meta, extra=''):
-    cuerpo = cab(h1, bajada, 'Nuestros caballos') + f'''
+def pagina_grupo(archivo, titulo, h1, bajada, intro, base_js, meta, extra='',
+                 foto='img/portada/franja.jpg', video=None):
+    cuerpo = cab(h1, bajada, 'Nuestros caballos', foto, video) + f'''
 <section><div class="wrap">
   <p class="lead" style="max-width:66ch;margin-top:0">{intro}</p>
   {FILTROS}
@@ -420,7 +425,8 @@ pagina_grupo('yeguas.html', 'Yeguas de cría PRE | Yeguada Tres Tréboles', 'Yeg
              'El corazón de la yeguada.',
              'De ellas sale todo lo demás. Nerva, Malusa, Utrera y Faraona ya han criado aquí; el resto son la base de los próximos años. Varias proceden de la ganadería María Fernanda de la Escalera.',
              "c => c.grupo === 'yegua'",
-             'Yeguas de cría de Pura Raza Española de Yeguada Tres Tréboles, en la sierra de Córdoba.')
+             'Yeguas de cría de Pura Raza Española de Yeguada Tres Tréboles, en la sierra de Córdoba.',
+             foto='video/yeguas-poster.jpg', video='video/yeguas.mp4')
 
 pagina_grupo('nacidos-en-la-yeguada.html', 'Potros nacidos en la yeguada | Tres Tréboles',
              'Nacidos en la yeguada', 'Nuestra cría propia, año a año.',

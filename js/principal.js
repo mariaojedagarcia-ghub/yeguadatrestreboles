@@ -278,11 +278,7 @@ function pintarFicha(slug){
   const bloqueReg = reg.length ? (
     '<section class="seccion-ficha"><div class="bloque">' +
     '<h2>Descendencia inscrita</h2>' +
-    '<p class="pie-lg">' + reg.length + ' hijos inscritos en el Libro Genealógico del PRE. ' +
-      (enCasa ? 'Solo ' + (enCasa === 1 ? 'uno sigue' : enCasa + ' siguen') +
-                ' en la yeguada; el resto pertenece a otras ganaderías.'
-              : 'Ninguno está hoy en la yeguada: todos pertenecen a otras ganaderías.') +
-      '</p>' +
+    '<p class="pie-lg">' + reg.length + ' hijos inscritos.</p>' +
     '<div class="tabla-hijos con-titular">' +
       '<div class="fila cab"><span>Año</span><span>Nombre</span><span>Capa</span><span>' +
         otroTitulo + '</span><span>Titular</span></div>' +
@@ -362,7 +358,7 @@ function pintarFicha(slug){
     '</div>' +
     (c.arbol ? '<button class="ver-arbol" onclick="abrirArbol(\'' + c.slug + '\')">' +
         'Ver árbol genealógico completo</button>' +
-        '<p class="pie-arbol">Del Libro Genealógico del caballo de Pura Raza Española</p>' : '') +
+        '' : '') +
     '</div></section>' +
 
     bloqueCubricion +
