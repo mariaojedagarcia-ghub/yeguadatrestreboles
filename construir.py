@@ -21,6 +21,11 @@ PORTADA = '''
   <div class="wrap"><div class="hero-txt">
     <div class="sobre">Urbanización 7 Fincas · Córdoba</div>
     <h1>Yeguada<br>Tres Tréboles</h1>
+    <!-- Guiño a la otra casa de la familia, igual que Mis Sentimientos enlaza
+         aquí desde su portada. -->
+    <a class="guino" href="https://mariaojedagarcia-ghub.github.io/missentimientos/"
+       target="_blank" rel="noopener"
+       title="Mis Sentimientos, nuestra casa de alquiler en El Rocío">Mis Sentimientos · El Rocío</a>
     <p>Cría de caballos de Pura Raza Española en la sierra de Córdoba.</p>
     <div class="botones">
       <a class="btn btn-solido" href="la-yeguada.html">Conocer la yeguada</a>

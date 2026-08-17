@@ -98,6 +98,13 @@ body.menu-abierto .panel{opacity:1;visibility:visible}
 .hero-txt .sobre{font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;opacity:.92;margin-bottom:20px;text-shadow:0 1px 8px rgba(0,0,0,.6)}
 .hero-txt h1{font-size:clamp(46px,7.4vw,86px);text-shadow:0 2px 22px rgba(0,0,0,.42);font-weight:500}
 .hero-txt p{font-size:clamp(17px,2.1vw,21px);margin:20px 0 0;max-width:34ch;text-shadow:0 1px 12px rgba(0,0,0,.55);opacity:.97}
+/* El enlace a Mis Sentimientos, debajo del título de la portada. Discreto a
+   propósito: es un guiño a la otra casa de la familia, no un reclamo. */
+.hero-txt .guino{display:inline-block;margin-top:16px;font-size:11.5px;
+  letter-spacing:.2em;text-transform:uppercase;color:#EDE7D9;text-decoration:none;
+  border-bottom:1px solid rgba(237,231,217,.42);padding-bottom:5px;
+  text-shadow:0 1px 8px rgba(0,0,0,.6);transition:color .2s,border-color .2s}
+.hero-txt .guino:hover{color:#fff;border-color:#fff}
 .botones{display:flex;gap:14px;flex-wrap:wrap;margin-top:36px}
 .btn{display:inline-block;text-decoration:none;padding:14px 30px;font-size:14.5px;letter-spacing:.04em;border-radius:2px;transition:.18s}
 .btn-solido{background:#fff;color:var(--verde-osc);border:1px solid #fff}
