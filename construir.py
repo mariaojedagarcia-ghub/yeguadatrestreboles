@@ -325,24 +325,30 @@ def tarifas(filas, nota=None):
             + (f'<p class="nota-tarifa">{nota}</p>' if nota else ''))
 
 
-FILTROS = '''
-    <div class="filtros">
+FILA_CAPA = """
       <div class="fila-filtro" data-filtro="capa">
         <span class="et-f">Capa</span>
         <button class="chip" data-valor="todos" aria-pressed="true">Todas</button>
         <button class="chip" data-valor="Castaña" aria-pressed="false">Castaña</button>
         <button class="chip" data-valor="Negra" aria-pressed="false">Negra</button>
         <button class="chip" data-valor="Torda" aria-pressed="false">Torda</button>
-        <button class="chip" data-valor="Bayo" aria-pressed="false">Bayo</button>
-      </div>
+        <button class="chip" data-valor="Diluida" aria-pressed="false">Diluida</button>
+      </div>"""
+
+FILA_SEXO = """
       <div class="fila-filtro" data-filtro="sexo">
         <span class="et-f">Sexo</span>
         <button class="chip" data-valor="todos" aria-pressed="true">Todos</button>
         <button class="chip" data-valor="M" aria-pressed="false">Machos</button>
         <button class="chip" data-valor="H" aria-pressed="false">Hembras</button>
-      </div>
-      <div class="recuento" id="recuento"></div>
-    </div>'''
+      </div>"""
+
+
+def filtros(sexo=True):
+    """El filtro de sexo solo se pinta donde puede haber machos y hembras.
+    En Sementales son todos machos y en Yeguas todas hembras: ahí sobra."""
+    return ('<div class="filtros">' + FILA_CAPA + (FILA_SEXO if sexo else '')
+            + '<div class="recuento" id="recuento"></div></div>')
 
 
 AVISO_CUBRICIONES = '''
@@ -363,11 +369,11 @@ AVISO_CUBRICIONES = '''
 
 
 def pagina_grupo(archivo, titulo, h1, bajada, intro, base_js, meta, extra='',
-                 foto='img/portada/franja.jpg', video=None):
+                 foto='img/portada/franja.jpg', video=None, sexo=True):
     cuerpo = cab(h1, bajada, 'Nuestros caballos', foto, video) + f'''
 <section><div class="wrap">
   <p class="lead" style="max-width:66ch;margin-top:0">{intro}</p>
-  {FILTROS}
+  {filtros(sexo)}
   <div class="rejilla" id="rejilla"></div>
 </div></section>
 {extra}
@@ -396,7 +402,7 @@ INDICE = cab('Nuestros caballos',
       <button class="chip" data-valor="Castaña" aria-pressed="false">Castaña</button>
       <button class="chip" data-valor="Negra" aria-pressed="false">Negra</button>
       <button class="chip" data-valor="Torda" aria-pressed="false">Torda</button>
-      <button class="chip" data-valor="Bayo" aria-pressed="false">Bayo</button>
+      <button class="chip" data-valor="Diluida" aria-pressed="false">Diluida</button>
     </div>
     <div class="fila-filtro" data-filtro="sexo">
       <span class="et-f">Sexo</span>
@@ -419,14 +425,14 @@ pagina_grupo('sementales.html', 'Sementales PRE | Yeguada Tres Tréboles', 'Seme
              'Provinciano es el semental con el que empezó la cría de la yeguada y padre de casi todos nuestros potros. Tatami es la apuesta joven. Ambos están disponibles para cubrición.',
              "c => c.grupo === 'semental'",
              'Sementales de Pura Raza Española de Yeguada Tres Tréboles, en Córdoba. Disponibles para cubrición.',
-             extra=AVISO_CUBRICIONES)
+             extra=AVISO_CUBRICIONES, sexo=False)
 
 pagina_grupo('yeguas.html', 'Yeguas de cría PRE | Yeguada Tres Tréboles', 'Yeguas de cría',
              'El corazón de la yeguada.',
              'De ellas sale todo lo demás. Nerva, Malusa, Utrera y Faraona ya han criado aquí; el resto son la base de los próximos años. Varias proceden de la ganadería María Fernanda de la Escalera.',
              "c => c.grupo === 'yegua'",
              'Yeguas de cría de Pura Raza Española de Yeguada Tres Tréboles, en la sierra de Córdoba.',
-             foto='video/yeguas-poster.jpg', video='video/yeguas.mp4')
+             foto='video/yeguas-poster.jpg', video='video/yeguas.mp4', sexo=False)
 
 pagina_grupo('nacidos-en-la-yeguada.html', 'Potros nacidos en la yeguada | Tres Tréboles',
              'Nacidos en la yeguada', 'Nuestra cría propia, año a año.',

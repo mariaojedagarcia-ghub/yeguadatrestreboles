@@ -149,12 +149,21 @@ function contar(grupo){
 /* ---------- Rejilla de caballos con filtros ---------- */
 let FILTROS = {grupo:'todos', capa:'todos', sexo:'todos'};
 
+/* Las capas diluidas (bayo, palomino, perlino...) son variantes del mismo
+   fenómeno: un gen de dilución sobre la capa de base. En el filtro van juntas
+   bajo "Diluida"; en la ficha cada caballo sigue mostrando su capa exacta. */
+const CAPAS_DILUIDAS = ['Bayo','Baya','Palomino','Palomina','Perlino','Perlina',
+                        'Cremello','Isabelo','Isabela'];
+
 function pasaFiltro(c){
   if (FILTROS.grupo !== 'todos'){
     if (FILTROS.grupo === 'en-venta'){ if (!c.enVenta || c.vendido) return false; }
     else if (c.grupo !== FILTROS.grupo) return false;
   }
-  if (FILTROS.capa !== 'todos' && c.capa !== FILTROS.capa) return false;
+  if (FILTROS.capa !== 'todos'){
+    if (FILTROS.capa === 'Diluida'){ if (CAPAS_DILUIDAS.indexOf(c.capa) === -1) return false; }
+    else if (c.capa !== FILTROS.capa) return false;
+  }
   if (FILTROS.sexo !== 'todos' && c.sexo !== FILTROS.sexo) return false;
   return true;
 }
