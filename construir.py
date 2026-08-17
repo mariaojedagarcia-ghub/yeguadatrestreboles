@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 """Contenido de cada página. Ejecutar:  python3 construir.py"""
 from generar import pagina, REDES
+import json, os
+from generar import RAIZ
+
+_b = open(os.path.join(RAIZ, 'datos', 'caballos.js'), encoding='utf-8').read()
+datos = json.loads(_b[_b.index('['): _b.rindex(']') + 1])
 
 # ============================== PORTADA ==============================
 PORTADA = '''
@@ -336,13 +341,31 @@ FILTROS = '''
     </div>'''
 
 
-def pagina_grupo(archivo, titulo, h1, bajada, intro, base_js, meta):
+AVISO_CUBRICIONES = '''
+<section class="fondo-papel"><div class="wrap dos">
+  <div class="prosa">
+    <div class="et">Servicio</div>
+    <h2 class="tit" style="margin-bottom:22px">Cubriciones</h2>
+    <p>Los dos están disponibles para cubrir tu yegua. Son los mismos caballos con los que
+      criamos nosotros, así que lo que ves en nuestros potros es lo que puedes esperar.</p>
+    <p>El canon se paga una sola vez, hasta que la yegua quede preñada, y puede quedarse
+      con nosotros el tiempo que necesite.</p>
+    <p style="margin-top:26px"><a class="cta" href="cubriciones.html">Ver el servicio de
+      cubriciones</a></p>
+  </div>
+  <div class="foto-marco"><img src="img/caballos/provinciano-sm-iii/portada.jpg"
+    alt="Provinciano SM III, semental PRE disponible para cubrición"></div>
+</div></section>'''
+
+
+def pagina_grupo(archivo, titulo, h1, bajada, intro, base_js, meta, extra=''):
     cuerpo = cab(h1, bajada, 'Nuestros caballos') + f'''
 <section><div class="wrap">
   <p class="lead" style="max-width:66ch;margin-top:0">{intro}</p>
   {FILTROS}
   <div class="rejilla" id="rejilla"></div>
 </div></section>
+{extra}
 {CONTACTO_FRANJA}'''
     pagina(archivo, titulo, meta, cuerpo,
            scripts=f"<script>activarFiltros('rejilla', {base_js});</script>")
@@ -390,7 +413,8 @@ pagina_grupo('sementales.html', 'Sementales PRE | Yeguada Tres Tréboles', 'Seme
              'Los caballos sobre los que construimos nuestra línea.',
              'Provinciano es el semental con el que empezó la cría de la yeguada y padre de casi todos nuestros potros. Tatami es la apuesta joven. Ambos están disponibles para cubrición.',
              "c => c.grupo === 'semental'",
-             'Sementales de Pura Raza Española de Yeguada Tres Tréboles, en Córdoba. Disponibles para cubrición.')
+             'Sementales de Pura Raza Española de Yeguada Tres Tréboles, en Córdoba. Disponibles para cubrición.',
+             extra=AVISO_CUBRICIONES)
 
 pagina_grupo('yeguas.html', 'Yeguas de cría PRE | Yeguada Tres Tréboles', 'Yeguas de cría',
              'El corazón de la yeguada.',
@@ -436,12 +460,13 @@ CUBRICIONES = cab('Cubriciones', 'Nuestros sementales, disponibles para tu yegua
   <div class="vias">
     <div class="via-card">
       <h3>Tarifas</h3>
-      ''' + tarifas([
-        ('Provinciano SM III', '350 €'),
-        ('Tatami JMG', '250 €'),
-        ('Extracción veterinaria', '+ 150 €', 'extra'),
-      ], 'La extracción se suma solo si el semen hay que recogerlo y enviarlo, y se cobra '
-         'cada vez que se hace. El envío se factura aparte, según destino.') + '''
+      ''' + tarifas(
+        [(c['nombre'], f"{c['precioCubricion']} €") for c in
+         sorted((x for x in datos if x.get('precioCubricion')),
+                key=lambda x: -x['precioCubricion'])]
+        + [('Extracción veterinaria', '+ 150 €', 'extra')],
+        'La extracción se suma solo si el semen hay que recogerlo y enviarlo, y se cobra '
+        'cada vez que se hace. El envío se factura aparte, según destino.') + '''
     </div>
     <div class="via-card">
       <h3>Condiciones</h3>
@@ -782,11 +807,7 @@ pagina('contacto.html', 'Contacto | Yeguada Tres Tréboles',
 
 
 # ============================== FICHAS ==============================
-import json
-from generar import cuentas, RAIZ
-import os
-_b = open(os.path.join(RAIZ, 'datos', 'caballos.js'), encoding='utf-8').read()
-datos = json.loads(_b[_b.index('['): _b.rindex(']') + 1])
+from generar import cuentas
 GRUPO_TXT = {'semental':'Semental', 'yegua':'Yegua de cría',
              'nacido-aqui':'Nacido en la yeguada', 'venta':'En venta'}
 

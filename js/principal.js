@@ -239,6 +239,17 @@ function pintarFicha(slug){
   const hijos = (c.descendencia || []).map(porSlug).filter(Boolean)
     .sort((a,b) => new Date(a.nacimiento) - new Date(b.nacimiento));
 
+  /* Si está disponible para cubrición, se dice claro y se lleva al servicio. */
+  const bloqueCubricion = c.cubriciones ? (
+    '<section class="seccion-ficha"><div class="bloque aviso-cubricion">' +
+      '<div class="et">Cubriciones</div>' +
+      '<p class="tit-cub">' + nombreCorto + ' está disponible para cubrir tu yegua</p>' +
+      (c.precioCubricion
+        ? '<p class="precio-suelto">' + c.precioCubricion + ' € por cubrición</p>' : '') +
+      '<p>El canon se paga una sola vez, hasta que la yegua quede preñada.</p>' +
+      '<a class="cta" href="' + RUTA + 'cubriciones.html">Ver el servicio de cubriciones</a>' +
+    '</div></section>') : '';
+
   const bloqueHijos = hijos.length ? (
     '<section class="seccion-ficha"><div class="bloque"><h2>Descendencia en la yeguada</h2>' +
     '<div class="hijos">' + hijos.map(h =>
@@ -335,7 +346,8 @@ function pintarFicha(slug){
         (c.criador ? '<li><span>Ganadería criadora</span><span>' + c.criador + '</span></li>' : '') +
         (c.hijosLG ? '<li><span>Hijos inscritos</span><span>' + c.hijosLG +
             ' en el Libro Genealógico</span></li>' : '') +
-        (c.cubriciones ? '<li><span>Cubriciones</span><span>Disponible</span></li>' : '') +
+        (c.cubriciones ? '<li><span>Cubriciones</span><span><a href="' + RUTA +
+            'cubriciones.html">Disponible</a></span></li>' : '') +
         (c.enVenta && !c.vendido ? '<li><span>Disponibilidad</span><span>En venta</span></li>' : '') +
         (c.vendido ? '<li><span>Situación</span><span>Ya no está en la yeguada</span></li>' : '') +
       '</ul>' +
@@ -353,6 +365,7 @@ function pintarFicha(slug){
         '<p class="pie-arbol">Del Libro Genealógico del caballo de Pura Raza Española</p>' : '') +
     '</div></section>' +
 
+    bloqueCubricion +
     bloqueHijos +
     bloqueReg +
 

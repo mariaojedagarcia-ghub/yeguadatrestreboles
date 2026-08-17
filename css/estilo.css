@@ -571,3 +571,11 @@ body.sin-hero{padding-top:96px}
 .nota-tarifa{font-size:14.5px;color:var(--suave);margin:14px 0 0;line-height:1.6}
 .precio-suelto{font-family:'Cormorant Garamond',Georgia,serif;font-size:26px;
   color:var(--verde);margin:14px 0 0;line-height:1}
+
+/* Aviso de cubriciones en la ficha del semental */
+.aviso-cubricion{background:var(--papel);border:1px solid var(--linea);border-radius:3px;padding:34px 32px}
+.aviso-cubricion .tit-cub{font-family:'Cormorant Garamond',Georgia,serif;font-size:31px;
+  line-height:1.15;color:var(--tinta);margin:0}
+.aviso-cubricion p{color:#4A463E;margin:10px 0 0}
+.aviso-cubricion .precio-suelto{margin-top:16px}
+.aviso-cubricion .cta{margin-top:22px}

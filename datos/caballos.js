@@ -38,10 +38,7 @@ const CABALLOS = [
       "01.jpg",
       "02.jpg",
       "03.jpg",
-      "04.jpg",
-      "05.jpg",
-      "06.jpg",
-      "07.jpg"
+      "04.jpg"
     ],
     "video": null,
     "credito": "Salvador Giménez Fotografía",
@@ -137,7 +134,8 @@ const CABALLOS = [
         "otro": "NR Malusa",
         "slug": "soberano-ii-tres-t"
       }
-    ]
+    ],
+    "precioCubricion": 350
   },
   {
     "slug": "tatami-jmg",
@@ -175,7 +173,8 @@ const CABALLOS = [
     ],
     "igg": null,
     "iggFiab": null,
-    "creditoPortada": null
+    "creditoPortada": null,
+    "precioCubricion": 250
   },
   {
     "slug": "japonesa-xiv",
@@ -204,12 +203,7 @@ const CABALLOS = [
     "palmares": [],
     "arbol": "arbol.jpg",
     "hijosLG": 9,
-    "videos": [
-      {
-        "archivo": "video-japonesa.mp4",
-        "poster": "video-japonesa-poster.jpg"
-      }
-    ],
+    "videos": [],
     "igg": "104,22",
     "iggFiab": null,
     "creditoPortada": null,
@@ -277,7 +271,8 @@ const CABALLOS = [
         "otro": "Jaquetón MFE III",
         "slug": null
       }
-    ]
+    ],
+    "precioCubricion": null
   },
   {
     "slug": "faraona-mfe",
@@ -306,7 +301,6 @@ const CABALLOS = [
       "02.jpg",
       "03.jpg",
       "04.jpg",
-      "05.jpg",
       "06.jpg"
     ],
     "video": null,
@@ -404,7 +398,8 @@ const CABALLOS = [
     ],
     "igg": "110,48",
     "iggFiab": "baja",
-    "creditoPortada": null
+    "creditoPortada": null,
+    "precioCubricion": null
   },
   {
     "slug": "hacendada-mfe",
@@ -435,15 +430,11 @@ const CABALLOS = [
     "palmares": [],
     "arbol": "arbol.jpg",
     "hijosLG": 0,
-    "videos": [
-      {
-        "archivo": "video-hacendada.mp4",
-        "poster": "video-hacendada-poster.jpg"
-      }
-    ],
+    "videos": [],
     "igg": null,
     "iggFiab": null,
-    "creditoPortada": null
+    "creditoPortada": null,
+    "precioCubricion": null
   },
   {
     "slug": "pompita-erre",
@@ -472,15 +463,11 @@ const CABALLOS = [
     "palmares": [],
     "arbol": "arbol.jpg",
     "hijosLG": 0,
-    "videos": [
-      {
-        "archivo": "video-pompita.mp4",
-        "poster": "video-pompita-poster.jpg"
-      }
-    ],
+    "videos": [],
     "igg": null,
     "iggFiab": null,
-    "creditoPortada": null
+    "creditoPortada": null,
+    "precioCubricion": null
   },
   {
     "slug": "utrera-hm",
@@ -549,7 +536,8 @@ const CABALLOS = [
         "otro": "Pericón de Torres",
         "slug": "canastera-tres-t"
       }
-    ]
+    ],
+    "precioCubricion": null
   },
   {
     "slug": "nr-malusa",
@@ -626,7 +614,8 @@ const CABALLOS = [
         "otro": "Provinciano SM III",
         "slug": "soberano-ii-tres-t"
       }
-    ]
+    ],
+    "precioCubricion": null
   },
   {
     "slug": "nerva-navero",
@@ -659,12 +648,7 @@ const CABALLOS = [
     "palmares": [],
     "arbol": "arbol.jpg",
     "hijosLG": 3,
-    "videos": [
-      {
-        "archivo": "video-nerva.mp4",
-        "poster": "video-nerva-poster.jpg"
-      }
-    ],
+    "videos": [],
     "igg": "105,37",
     "iggFiab": "baja",
     "creditoPortada": null,
@@ -690,7 +674,8 @@ const CABALLOS = [
         "otro": "Provinciano SM III",
         "slug": "nervion-ii-tres-t"
       }
-    ]
+    ],
+    "precioCubricion": null
   },
   {
     "slug": "betica-vr",
@@ -711,10 +696,7 @@ const CABALLOS = [
     "vendido": false,
     "destacado": false,
     "texto": "",
-    "fotos": [
-      "portada.jpg",
-      "01.jpg"
-    ],
+    "fotos": [],
     "video": null,
     "credito": null,
     "palmares": [],
@@ -723,7 +705,8 @@ const CABALLOS = [
     "videos": [],
     "igg": null,
     "iggFiab": null,
-    "creditoPortada": null
+    "creditoPortada": null,
+    "precioCubricion": null
   },
   {
     "slug": "bonachona-de-vinuesa",
@@ -753,7 +736,8 @@ const CABALLOS = [
     "videos": [],
     "igg": null,
     "iggFiab": null,
-    "creditoPortada": null
+    "creditoPortada": null,
+    "precioCubricion": null
   },
   {
     "slug": "nervion-tres-treboles",
@@ -785,7 +769,8 @@ const CABALLOS = [
     "igg": null,
     "iggFiab": null,
     "creditoPortada": null,
-    "nota": "Nacido en la yeguada. Hoy ya no está aquí; conserva el nombre con el que se inscribió."
+    "nota": "Nacido en la yeguada. Hoy ya no está aquí; conserva el nombre con el que se inscribió.",
+    "precioCubricion": null
   },
   {
     "slug": "nervion-ii-tres-t",
@@ -815,7 +800,8 @@ const CABALLOS = [
     "videos": [],
     "igg": null,
     "iggFiab": null,
-    "creditoPortada": null
+    "creditoPortada": null,
+    "precioCubricion": null
   },
   {
     "slug": "soberano-ii-tres-t",
@@ -845,7 +831,8 @@ const CABALLOS = [
     "videos": [],
     "igg": null,
     "iggFiab": null,
-    "creditoPortada": null
+    "creditoPortada": null,
+    "precioCubricion": null
   },
   {
     "slug": "canastera-tres-t",
@@ -877,7 +864,8 @@ const CABALLOS = [
     "videos": [],
     "igg": null,
     "iggFiab": null,
-    "creditoPortada": null
+    "creditoPortada": null,
+    "precioCubricion": null
   },
   {
     "slug": "saeta-tres-t",
@@ -908,7 +896,8 @@ const CABALLOS = [
     "videos": [],
     "igg": null,
     "iggFiab": null,
-    "creditoPortada": null
+    "creditoPortada": null,
+    "precioCubricion": null
   },
   {
     "slug": "amaranto-xxviii",
@@ -941,7 +930,8 @@ const CABALLOS = [
     "videos": [],
     "igg": null,
     "iggFiab": null,
-    "creditoPortada": null
+    "creditoPortada": null,
+    "precioCubricion": null
   },
   {
     "slug": "castorena-ix",
@@ -974,7 +964,8 @@ const CABALLOS = [
     "videos": [],
     "igg": "95,73",
     "iggFiab": "baja",
-    "creditoPortada": null
+    "creditoPortada": null,
+    "precioCubricion": null
   },
   {
     "slug": "soberano-tres-treboles",
@@ -1004,16 +995,12 @@ const CABALLOS = [
     "palmares": [],
     "arbol": "arbol.jpg",
     "hijosLG": 0,
-    "videos": [
-      {
-        "archivo": "video-soberano.mp4",
-        "poster": "video-soberano-poster.jpg"
-      }
-    ],
+    "videos": [],
     "igg": null,
     "iggFiab": null,
     "creditoPortada": null,
-    "nota": "Nacido en la yeguada. Hoy ya no está aquí; conserva el nombre con el que se inscribió."
+    "nota": "Nacido en la yeguada. Hoy ya no está aquí; conserva el nombre con el que se inscribió.",
+    "precioCubricion": null
   },
   {
     "slug": "distinguida-xci",
@@ -1082,6 +1069,7 @@ const CABALLOS = [
         "otro": "Príncipe Lorenzana",
         "slug": null
       }
-    ]
+    ],
+    "precioCubricion": null
   }
 ];
