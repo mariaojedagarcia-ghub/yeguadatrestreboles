@@ -219,12 +219,36 @@ function pintarRejilla(id, base){
 
 function activarFiltros(id, base){
   document.querySelectorAll('.fila-filtro').forEach(fila => {
+    const clave = fila.dataset.filtro;
+    const chips = fila.querySelectorAll('.chip');
+
+    /* En el móvil los botones no caben en una línea y se descolocan: ahí se
+       enseña un desplegable con las mismas opciones (lo decide el CSS). Los
+       dos mandos son el mismo filtro, así que se mantienen sincronizados. */
+    const sel = document.createElement('select');
+    sel.className = 'sel-f';
+    sel.setAttribute('aria-label', (fila.querySelector('.et-f') || {}).textContent || clave);
+    chips.forEach(b => {
+      const o = document.createElement('option');
+      o.value = b.dataset.valor;
+      o.textContent = b.textContent.trim();
+      o.selected = b.getAttribute('aria-pressed') === 'true';
+      sel.appendChild(o);
+    });
+    fila.appendChild(sel);
+
+    const aplicar = valor => {
+      FILTROS[clave] = valor;
+      chips.forEach(x => x.setAttribute('aria-pressed', String(x.dataset.valor === valor)));
+      if (sel.value !== valor) sel.value = valor;
+      pintarRejilla(id, base);
+    };
+
     fila.addEventListener('click', e => {
       const b = e.target.closest('.chip'); if (!b) return;
-      FILTROS[fila.dataset.filtro] = b.dataset.valor;
-      fila.querySelectorAll('.chip').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
-      pintarRejilla(id, base);
+      aplicar(b.dataset.valor);
     });
+    sel.addEventListener('change', () => aplicar(sel.value));
   });
   pintarRejilla(id, base);
 }
@@ -255,7 +279,8 @@ function pintarFicha(slug){
       '<p class="tit-cub">' + nombreCorto + ' está disponible para cubrir tu yegua</p>' +
       (c.precioCubricion
         ? '<p class="precio-suelto">' + c.precioCubricion + ' € por cubrición</p>' : '') +
-      '<p>El canon se paga una sola vez, hasta que la yegua quede preñada.</p>' +
+      '<p>El canon se paga una sola vez, hasta que la yegua quede preñada. La extracción ' +
+        'veterinaria y el envío, si hacen falta, se cobran aparte.</p>' +
       '<a class="cta" href="' + RUTA + 'cubriciones.html">Ver el servicio de cubriciones</a>' +
     '</div></section>') : '';
 

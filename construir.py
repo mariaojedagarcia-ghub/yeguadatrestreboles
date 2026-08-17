@@ -363,8 +363,8 @@ AVISO_CUBRICIONES = '''
     <p style="margin-top:26px"><a class="cta" href="cubriciones.html">Ver el servicio de
       cubriciones</a></p>
   </div>
-  <div class="foto-marco"><img src="img/caballos/provinciano-sm-iii/portada.jpg"
-    alt="Provinciano SM III, semental PRE disponible para cubrición"></div>
+  <div class="foto-marco"><img src="img/servicios/cubriciones.jpg"
+    alt="Cubriciones en Yeguada Tres Tréboles: inseminación artificial y monta natural"></div>
 </div></section>'''
 
 

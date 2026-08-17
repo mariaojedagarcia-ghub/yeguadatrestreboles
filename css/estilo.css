@@ -295,6 +295,23 @@ footer.pie{background:var(--verde-osc);color:#9AA79A;padding:52px 0;font-size:13
 .chip:hover{border-color:var(--verde-claro);color:var(--tinta)}
 .chip[aria-pressed="true"]{background:var(--verde);border-color:var(--verde);color:#F6F2E8}
 .recuento{font-size:14px;color:var(--suave);padding:16px 0 0;border-top:1px solid var(--linea);margin-top:18px}
+/* En pantalla ancha manda la fila de botones; el desplegable está oculto. */
+.fila-filtro .sel-f{display:none}
+@media(max-width:760px){
+  /* En el móvil los botones no caben en una línea, se parten en dos o tres
+     y cuesta ver qué está elegido: se cambian por un desplegable por fila. */
+  .fila-filtro .chip{display:none}
+  .filtros{gap:11px;padding-top:24px}
+  .fila-filtro{align-items:center;gap:10px;flex-wrap:nowrap}
+  .fila-filtro .et-f{min-width:52px;flex:0 0 auto}
+  .fila-filtro .sel-f{display:block;flex:1 1 auto;width:100%;min-width:0;
+    -webkit-appearance:none;appearance:none;
+    border:1px solid var(--linea);border-radius:2px;background:transparent;
+    color:var(--tinta);font:inherit;font-size:15px;padding:11px 34px 11px 13px;
+    background-image:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='none' stroke='%236B6A62' stroke-width='1.6'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;background-position:right 13px center;background-size:11px}
+  .fila-filtro .sel-f:focus{outline:none;border-color:var(--verde)}
+}
 .rejilla{display:grid;grid-template-columns:repeat(auto-fill,minmax(252px,1fr));gap:26px;padding:28px 0 0}
 .tarjeta{background:var(--papel);border:1px solid var(--linea);border-radius:3px;overflow:hidden;
   text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:.2s;
