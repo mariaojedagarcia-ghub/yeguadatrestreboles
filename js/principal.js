@@ -78,23 +78,26 @@ function marcador(nombre){
 /* La foto del caballo. Si tiene carta genealógica, la foto se voltea al pasar
    por encima (o al tocarla en móvil) y enseña el documento por detrás. */
 /* Los marcos son apaisados (la franja de la ficha) o cuadrados (las tarjetas).
-   Cuando la foto es más estrecha que su hueco, recortarla deja al caballo sin
-   cabeza o sin patas: en ese caso se enseña entera y se rellena el resto con
-   la misma foto desenfocada.
+   Cuando la foto no tiene la misma forma que su hueco hay que elegir: o se
+   recorta para llenarlo, o se enseña entera y se rellena el resto con la
+   misma foto desenfocada.
 
-   No basta con mirar si la foto es vertical. La portada de Nerva, por ejemplo,
-   es apaisada (1358x988) pero mucho menos que la franja de la ficha (16:8), y
-   se le comía casi un tercio. Por eso se compara la proporción de la foto con
-   la del hueco donde va, no con un valor fijo. */
+   Se mira cuánto se perdería al recortar, EN LOS DOS SENTIDOS. Da igual que
+   la foto sea vertical u horizontal: lo que importa es la diferencia de forma
+   con el hueco. La portada de Nerva (1358x988) es apaisada, pero en la franja
+   de la ficha se le comía un tercio por arriba y por abajo, y en la tarjeta
+   cuadrada se le comía la cabeza por un lado. */
 function ajustarVertical(img){
   const caja = img.closest('.foto, .marco');
   if (!caja) return;
   const r = caja.getBoundingClientRect();
   if (!r.width || !r.height || !img.naturalWidth) return;
-  /* Se admite recortar hasta un 20%: por debajo de eso llenar el hueco queda
-     mejor. A partir de ahí el recorte se lleva por delante media foto y se
-     enseña entera. */
-  if (img.naturalWidth / img.naturalHeight < (r.width / r.height) * 0.8)
+  const foto = img.naturalWidth / img.naturalHeight;
+  const hueco = r.width / r.height;
+  /* Cuánto queda de la foto si se recorta: 1 = misma forma, 0.7 = se pierde
+     el 30%. Hasta un 15% se recorta, que llena mejor; más allá se enseña
+     entera, porque a partir de ahí el recorte se lleva la cabeza o las patas. */
+  if (Math.min(foto, hueco) / Math.max(foto, hueco) < 0.85)
     caja.classList.add('vertical');
 }
 
